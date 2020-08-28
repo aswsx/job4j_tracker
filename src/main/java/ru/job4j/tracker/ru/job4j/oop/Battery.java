@@ -1,7 +1,6 @@
 package ru.job4j.tracker.ru.job4j.oop;
 
 public class Battery {
-
     private int load;
 
     public Battery(int load) {
