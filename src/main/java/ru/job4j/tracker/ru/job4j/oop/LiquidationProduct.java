@@ -1,6 +1,6 @@
 package ru.job4j.tracker.ru.job4j.oop;
 
-public class LiquidationProduct {
+public final class LiquidationProduct {
     private Product product;
 
     public LiquidationProduct(String name, int price) {
