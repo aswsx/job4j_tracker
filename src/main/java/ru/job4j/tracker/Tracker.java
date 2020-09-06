@@ -40,6 +40,17 @@ public class Tracker {
         return isReplaced;
     }
 
+    public boolean delete(int id) {
+        int index = indexOf(id);
+        boolean isDeleted = false;
+        if (index != -1) {
+            items[index] = null;
+            System.arraycopy(items, index + 1, items, index, size - index);
+            isDeleted = true;
+        }
+        return isDeleted;
+    }
+
     public Item[] findAll() {
         return Arrays.copyOf(items, size);
     }
@@ -59,14 +70,5 @@ public class Tracker {
         return rsl;
     }
 
-    public boolean delete(int id) {
-        int index = indexOf(id);
-        boolean isDeleted = false;
-        if (index != -1) {
-            items[indexOf(id)] = null;
-            System.arraycopy(items, index + 1, items, index, size - index);
-            isDeleted = true;
-        }
-        return isDeleted;
-    }
+
 }

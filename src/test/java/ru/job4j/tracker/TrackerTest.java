@@ -34,7 +34,6 @@ public class TrackerTest {
         Tracker tracker = new Tracker();
         Item bug = new Item();
         bug.setName("Bug");
-        bug.setId(1);
         tracker.add(bug);
         int id = bug.getId();
         tracker.delete(id);
