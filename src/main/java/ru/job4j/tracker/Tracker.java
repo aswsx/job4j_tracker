@@ -31,23 +31,21 @@ public class Tracker {
 
     public boolean replace(int id, Item item) {
         int index = indexOf(id);
-        boolean isReplaced = false;
-        if (index != -1) {
+        boolean isReplaced = index != -1;
+        if (isReplaced) {
             item.setId(id);
             items[index] = item;
-            isReplaced = true;
         }
         return isReplaced;
     }
 
     public boolean delete(int id) {
         int index = indexOf(id);
-        boolean isDeleted = false;
-        if (index != -1) {
+        boolean isDeleted = index != -1;
+        if (isDeleted) {
             System.arraycopy(items, index + 1, items, index, size - index);
             items[size - 1] = null;
             size--;
-            isDeleted = true;
         }
         return isDeleted;
     }
