@@ -7,6 +7,7 @@ public class DropArray {
         String[] names = {"Petr", null, "Ivan", "Stepan", null};
         String[] namesWithoutNull = new String[names.length];
         int size = 0;
+
         for (int index = 0; index < names.length; index++) {
             String name = names[index];
             if (name != null) {
