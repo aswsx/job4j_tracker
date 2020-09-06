@@ -29,12 +29,15 @@ public class Tracker {
         return rsl;
     }
 
-    public Item replace(int id, Item item) {
+    public boolean replace(int id, Item item) {
         int index = indexOf(id);
-        int gettedId = items[index].getId();
-        item.setId(gettedId);
-        items[index] = item;
-        return index != -1 ? items[index] : null;
+        boolean isReplaced = false;
+        if (index != -1) {
+            item.setId(items[index].getId());
+            items[index] = item;
+            isReplaced = true;
+        }
+        return isReplaced;
     }
 
     public Item[] findAll() {
