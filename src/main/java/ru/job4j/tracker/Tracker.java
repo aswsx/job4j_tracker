@@ -44,8 +44,9 @@ public class Tracker {
         int index = indexOf(id);
         boolean isDeleted = false;
         if (index != -1) {
-            items[index] = null;
             System.arraycopy(items, index + 1, items, index, size - index);
+            items[size - 1] = null;
+            size--;
             isDeleted = true;
         }
         return isDeleted;
