@@ -33,7 +33,7 @@ public class Tracker {
         int index = indexOf(id);
         boolean isReplaced = false;
         if (index != -1) {
-            item.setId(items[index].getId());
+            item.setId(id);
             items[index] = item;
             isReplaced = true;
         }
@@ -57,5 +57,16 @@ public class Tracker {
         }
         rsl = Arrays.copyOf(rsl, newSize);
         return rsl;
+    }
+
+    public boolean delete(int id) {
+        int index = indexOf(id);
+        boolean isDeleted = false;
+        if (index != -1) {
+            items[indexOf(id)] = null;
+            System.arraycopy(items, index + 1, items, index, size - index);
+            isDeleted = true;
+        }
+        return isDeleted;
     }
 }
