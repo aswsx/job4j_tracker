@@ -1,6 +1,5 @@
 package ru.job4j.tracker;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class StartUI {
@@ -67,7 +66,7 @@ public class StartUI {
                     Item[] items = tracker.findByName(name);
                     if (items.length > 0) {
                         for (int i = 0; i < items.length; i++) {
-                            System.out.println(Arrays.toString(items));
+                            System.out.println(items[i]);
                         }
                     } else {
                         System.out.println("Заявки с таким именем не найдены");
