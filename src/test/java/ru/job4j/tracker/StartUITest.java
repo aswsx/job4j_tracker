@@ -20,22 +20,20 @@ public class StartUITest {
     public void whenReplaceItem() {
         Tracker tracker = new Tracker();
         Item item = tracker.add(new Item("Replaced item"));
+        String id = String.valueOf(item.getId());
         String replacedName = "New item name";
-        Input in = new StubInput(
-                new String[]{"0", "1"}
-        );
+        Input in = new StubInput(new String[]{"0", id, replacedName, "1"});
         UserAction[] actions = {new EditAction(), new ExitAction()};
         new StartUI().init(in, tracker, actions);
-        assertThat(tracker.findById(item.getId()), is(replacedName));
+        assertThat(tracker.findById(item.getId()).getName(), is(replacedName));
     }
 
     @Test
     public void whenDeleteItem() {
         Tracker tracker = new Tracker();
         Item item = tracker.add(new Item("Deleted item"));
-        Input in = new StubInput(
-                new String[]{"0", "1"}
-        );
+        String id = String.valueOf(item.getId());
+        Input in = new StubInput(new String[]{"0", id, "1"});
         UserAction[] actions = {new DeleteAction(), new ExitAction()};
         new StartUI().init(in, tracker, actions);
         assertThat(tracker.findById(item.getId()), is(nullValue()));
