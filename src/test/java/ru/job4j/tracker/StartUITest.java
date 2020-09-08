@@ -94,3 +94,4 @@ public class StartUITest {
                 + "Menu." + System.lineSeparator() + "0. Find by Name" + System.lineSeparator() + "1. Exit" + System.lineSeparator()));
     }
 }
+
