@@ -61,7 +61,9 @@ public class StartUITest {
         Input in = new StubInput(new String[]{"0", "1"});
         UserAction[] actions = {new ShowAllAction(out), new ExitAction(out)};
         new StartUI(out).init(in, tracker, actions);
-        assertThat(out.toString(), is("=== Show all Items ===" + System.lineSeparator() + tracker.findById(item.getId()) + System.lineSeparator()));
+        assertThat(out.toString(), is("Menu." + System.lineSeparator() + "0. Show all" + System.lineSeparator() + "1. Exit" + System.lineSeparator()
+                + "=== Show all Items ===" + System.lineSeparator() + tracker.findById(item.getId()) + System.lineSeparator()
+                + "Menu." + System.lineSeparator() + "0. Show all" + System.lineSeparator() + "1. Exit" + System.lineSeparator()));
     }
 
     @Test
@@ -73,7 +75,9 @@ public class StartUITest {
         Input in = new StubInput(new String[]{"0", id, "1"});
         UserAction[] actions = {new FindByIDAction(out), new ExitAction(out)};
         new StartUI(out).init(in, tracker, actions);
-        assertThat(out.toString(), is("=== Find item by Id ===" + System.lineSeparator() + tracker.findById(item.getId()) + System.lineSeparator()));
+        assertThat(out.toString(), is("Menu." + System.lineSeparator() + "0. Find by Id" + System.lineSeparator() + "1. Exit" + System.lineSeparator()
+                + "=== Find item by Id ===" + System.lineSeparator() + tracker.findById(item.getId()) + System.lineSeparator()
+                + "Menu." + System.lineSeparator() + "0. Find by Id" + System.lineSeparator() + "1. Exit" + System.lineSeparator()));
     }
 
     @Test
@@ -85,6 +89,8 @@ public class StartUITest {
         Input in = new StubInput(new String[]{"0", name, "1"});
         UserAction[] actions = {new FindByNameAction(out), new ExitAction(out)};
         new StartUI(out).init(in, tracker, actions);
-        assertThat(out.toString(), is("=== Find item by Name ===" + System.lineSeparator() + tracker.findById(item.getId()) + System.lineSeparator()));
+        assertThat(out.toString(), is("Menu." + System.lineSeparator() + "0. Find by Name" + System.lineSeparator() + "1. Exit" + System.lineSeparator()
+                + "=== Find item by Name ===" + System.lineSeparator() + tracker.findById(item.getId()) + System.lineSeparator()
+                + "Menu." + System.lineSeparator() + "0. Find by Name" + System.lineSeparator() + "1. Exit" + System.lineSeparator()));
     }
 }
