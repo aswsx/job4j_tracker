@@ -1,4 +1,4 @@
-package ru.job4j.tracker;bbb
+package ru.job4j.tracker;
 
 public class StartUI {
     private final Output out;
