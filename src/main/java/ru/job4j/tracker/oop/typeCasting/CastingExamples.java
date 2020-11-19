@@ -7,12 +7,11 @@ public class CastingExamples {
         Vehicle plane = new Airplane();
         Vehicle train = new Train();
 
-        Vehicle[] vehicles = new Vehicle[]{bus, plane, train};
+         Vehicle[] vehicles = new Vehicle[]{bus, plane, train};
 
         for (Vehicle v : vehicles) {
             v.move();
         }
     }
 }
-
 
