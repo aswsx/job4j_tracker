@@ -106,7 +106,6 @@ public class StartUITest {
                                 + ", created="
                                 + item.getCreated().toString()
                                 + "}%n"
-                                // + tracker.findById(item.getId()) + System.lineSeparator()
                                 + "Menu.%n"
                                 + "0. Find by Id%n"
                                 + "1. Exit%n")));
