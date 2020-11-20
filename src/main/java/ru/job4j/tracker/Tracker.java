@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Tracker {
-    ArrayList<Item> items = new ArrayList<>();
+    private final ArrayList<Item> items = new ArrayList<>();
     private int ids = 1;
-    private int size = 0;
+   // private int size = 0;
 
     public Item add(Item item) {
         item.setId(ids++);
@@ -21,7 +21,7 @@ public class Tracker {
 
     private int indexOf(int id) {
         int rsl = -1;
-        for (int index = 0; index < size; index++) {
+        for (int index = 0; index < items.size(); index++) {
             if (items.get(index).getId() == id) {
                 rsl = index;
                 break;
@@ -45,8 +45,8 @@ public class Tracker {
         boolean isDeleted = index != -1;
         if (isDeleted) {
             items.remove(index);
-            items.set(size - 1, null);
-            size--;
+          //  items.set(size - 1, null);
+          //  size--;
         }
         return isDeleted;
     }
@@ -57,9 +57,8 @@ public class Tracker {
 
     public ArrayList<Item> findByName(String key) {
         ArrayList<Item> rsl = new ArrayList<>();
-        int newSize = 0;
-        for (int index = 0; index < size; index++) {
-            Item item = items.get(index);
+       // int newSize = 0;
+        for (Item item : items) {
             if (item.getName().equals(key)) {
                 rsl.add(item);
             }
