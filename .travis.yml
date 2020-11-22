@@ -16,7 +16,7 @@ notifications:
   email:
     recipients:
       -lextor78@gmail.com
-    on_success: never # default: change
+    on_success: change # default: change
     on_failure: always # default: always
 
 env:
