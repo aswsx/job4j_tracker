@@ -10,8 +10,10 @@ public class College {
         student.setLastName("Гуторов");
         student.setGroup("ATE");
         student.setAdmitted(new Date());
+        String out1 = "Student " + student.getName() + " " + student.getSecondName() + " ";
+        String out2 = student.getLastName() + " admitted " + student.getAdmitted();
+        String out3 = " to the group " + student.getGroup();
 
-        System.out.println("Student " + student.getName() + " " + student.getSecondName() + " "
-                + student.getLastName() + " admitted " + student.getAdmitted() + " to the group " + student.getGroup());
+        System.out.println(out1 + out2 + out3);
     }
 }

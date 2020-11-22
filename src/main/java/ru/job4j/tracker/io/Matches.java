@@ -21,8 +21,14 @@ public class Matches {
                 }
             }
             switch (player) {
-                case 1 -> player = 2;
-                case 2 -> player = 1;
+                case 1:
+                    player = 2;
+                    break;
+                case 2:
+                    player = 1;
+                    break;
+                default:
+                    break;
             }
         }
     }

@@ -27,13 +27,13 @@ public class StartUITest {
         Output out = new StubOutput();
         Tracker tracker = new Tracker();
         Item item = tracker.add(new Item("Created item"));
-        String replacedName = "New item name";
-        Input in = new StubInput(new String[]{"0", Integer.toString(item.getId()), replacedName, "1"});
+        String replName = "New item name";
+        Input in = new StubInput(new String[]{"0", Integer.toString(item.getId()), replName, "1"});
         List<UserAction> actions = new ArrayList<>();
         actions.add(new EditAction(out));
         actions.add(new ExitAction());
         new StartUI(out).init(in, tracker, actions);
-        assertThat(tracker.findAll().get(0).getName(), is(replacedName));
+        assertThat(tracker.findAll().get(0).getName(), is(replName));
     }
 
     @Test
