@@ -26,4 +26,31 @@ public class DepDescCompTest {
         assertThat(rsl, lessThan(0));
     }
 
+    @Test
+    public void whenUpDepartmentGoAfter() {
+        int rsl = new DepDescComp().compare(
+                "K2/SK1",
+                "K2"
+        );
+        assertThat(rsl, lessThan(0));
+    }
+
+    @Test
+    public void whenAllDepartments() {
+        int rsl = new DepDescComp().compare(
+                "K2",
+                "SK1/SSK2"
+        );
+        assertThat(rsl, lessThan(0));
+    }
+
+    @Test
+    public void whenNotMiddleDepartment() {
+        int rsl = new DepDescComp().compare(
+                "K2",
+                "SSK1"
+        );
+        assertThat(rsl, lessThan(0));
+    }
+
 }
