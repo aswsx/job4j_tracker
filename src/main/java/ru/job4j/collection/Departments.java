@@ -16,11 +16,13 @@ public class Departments {
         return new ArrayList<>(tmp);
     }
 
-    public static void sortAsc(List<String> orgs) {
+    public static List<String> sortAsc(List<String> orgs) {
         orgs.sort(Comparator.naturalOrder());
+        return orgs;
     }
 
-    public static void sortDesc(List<String> orgs) {
+    public static List<String> sortDesc(List<String> orgs) {
         orgs.sort(new DepDescComp());
+        return orgs;
     }
 }

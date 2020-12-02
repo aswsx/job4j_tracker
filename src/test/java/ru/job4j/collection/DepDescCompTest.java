@@ -52,5 +52,4 @@ public class DepDescCompTest {
         );
         assertThat(rsl, lessThan(0));
     }
-
 }
