@@ -9,7 +9,7 @@ sudo: false
 # после выполнения сборки запустить скрипт, который будет собирать статистику по JaCoCo
 # Здесь используется сторонни сервис https://codecov.io/
 after_success:
-  - bash <(curl -s https://codecov.io/bash) -t b1766077-8526-4015-bfbc-5a7cc4e85eac
+  - bash <(curl -s https://codecov.io/bash)
   env:
     global:
       - CODECOV_TOKEN="b1766077-8526-4015-bfbc-5a7cc4e85eac"
