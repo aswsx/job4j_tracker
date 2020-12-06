@@ -32,7 +32,7 @@ public class DepDescCompTest {
                 "K2/SK1",
                 "K2"
         );
-        assertThat(rsl, lessThan(0));
+        assertThat(rsl, greaterThan(0));
     }
 
     @Test
@@ -41,7 +41,7 @@ public class DepDescCompTest {
                 "K2",
                 "SK1/SSK2"
         );
-        assertThat(rsl, lessThan(0));
+        assertThat(rsl, greaterThan(0));
     }
 
     @Test
@@ -50,6 +50,6 @@ public class DepDescCompTest {
                 "K2",
                 "SSK1"
         );
-        assertThat(rsl, lessThan(0));
+        assertThat(rsl, greaterThan(0));
     }
 }
