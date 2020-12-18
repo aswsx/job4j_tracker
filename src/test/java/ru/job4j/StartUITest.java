@@ -112,8 +112,6 @@ public class StartUITest {
                                 + "1. Exit%n")));
     }
 
-    //
-
     @Test
     public void whenFindByName() {
         Output out = new StubOutput();
