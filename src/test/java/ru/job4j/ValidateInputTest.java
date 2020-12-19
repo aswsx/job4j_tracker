@@ -19,7 +19,7 @@ public class ValidateInputTest {
     }
 
     @Test
-    public void whenWWrongNumber() {
+    public void whenWrongNumber() {
         Output out = new StubOutput();
         Input in = new StubInput(new String[]{"8", "1"});
         ValidateInput input = new ValidateInput(out, in);
