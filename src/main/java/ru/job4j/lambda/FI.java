@@ -25,6 +25,6 @@ public class FI {
         };
         Arrays.sort(atts, comparator);
         Arrays.sort(atts, cmpText);
-        Arrays.sort(atts,cmpDescSize);
+        Arrays.sort(atts, cmpDescSize);
     }
 }
