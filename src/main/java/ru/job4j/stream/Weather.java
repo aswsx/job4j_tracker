@@ -8,6 +8,18 @@ public class Weather {
     private String season;
     private String position;
 
+    @Override
+    public String toString() {
+        return String.format(
+                 "Position: " + this.position + "%n"
+                + "Season: " + this.season + "%n"
+                + "Temperature: " + this.temperature + "%n"
+                + "Humidity: " + this.humidity + "%n"
+                + "Wind: " + this.wind + "%n"
+                + "Clouds: " + this.clouds
+        );
+    }
+
     static class Builder {
         private double temperature;
         private double humidity;
