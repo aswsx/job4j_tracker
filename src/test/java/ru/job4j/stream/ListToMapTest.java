@@ -8,7 +8,7 @@ import java.util.Map;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
-public class listToMapTest {
+public class ListToMapTest {
     @Test
     public void convert() {
         List<Student> input = List.of(
