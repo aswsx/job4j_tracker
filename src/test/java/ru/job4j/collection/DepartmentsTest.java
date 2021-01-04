@@ -27,7 +27,7 @@ public class DepartmentsTest {
 
     @Test
     public void whenAllDeptsDesc() {
-        List<String> input = List.of(
+        List<String> input = Arrays.asList(
                 "K1",
                 "K1/SK1",
                 "K1/SK1/SSK1",
@@ -37,7 +37,7 @@ public class DepartmentsTest {
                 "K2/SK1/SSK1",
                 "K2/SK1/SSK2",
                 "K2");
-        List<String> expect = List.of(
+        List<String> expect = Arrays.asList(
                 "K2",
                 "K2/SK1",
                 "K2/SK1/SSK1",
@@ -55,7 +55,7 @@ public class DepartmentsTest {
 
     @Test
     public void whenAllDeptsAsc() {
-        List<String> input = List.of(
+        List<String> input = Arrays.asList(
                 "K1",
                 "K2/SK1/SSK1",
                 "K2/SK1/SSK2",
@@ -67,7 +67,7 @@ public class DepartmentsTest {
                 "K2/SK1"
 
         );
-        List<String> expect = List.of(
+        List<String> expect = Arrays.asList(
                 "K1",
                 "K1/SK1",
                 "K1/SK1/SSK1",
