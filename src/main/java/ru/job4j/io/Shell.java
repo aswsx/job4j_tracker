@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Shell {
-    private List<String> rsl;
+    private final List<String> rsl;
 
     public Shell() {
         this.rsl = new ArrayList<>();
