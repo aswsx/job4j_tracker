@@ -25,11 +25,11 @@ public class Shell {
             default:
                 String[] dirs = path.split("/");
                 if (dirs.length > 1) {
-                    for (int i = 0; i < dirs.length; i++) {
-                        if (dirs[i].equals("")) {
+                    for (String dir : dirs) {
+                        if (dir.equals("")) {
                             continue;
                         }
-                        cd(dirs[i]);
+                        cd(dir);
                     }
                 } else {
                     if (!rsl.get(rsl.size() - 1).equals("/")) {
