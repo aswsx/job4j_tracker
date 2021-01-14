@@ -39,6 +39,13 @@
 Главное отличие от фабричного метода, абстрактная фабрика это интерфейс, который содержит абстрактные методы для создания экземпляров. 
 Шаблон Фабричный метод применяется в классах CreateAction, DeleteAction, EditAction, FindAction. 
 В этих методах возможно применить шаблон Абстрактная фабрика, есл переместить метод execute() в интерфейс UserAction</li>
+<li>Подключение Checkstyle с Maven  </li>
+  <li>JaCoCo. Процент покрытие тестами <a href="https://github.com/aswsx/job4j_tracker/commit/cd068d3410f37987089af5a14daebb69fbfa42be"></a></li>
+  <li>Интеграция с Travis CI </li>
+  <li>Лямбда выражения </li>
+  <li>StreamAPI </li>
+  <li>Optional </li>
+  <li>Local-Variable Type Inference (var) </li>
 </ul>
 <h3>Singleton</h3>
 <p><a href="https://github.com/aswsx/job4j_tracker/commit/1738ebf1c2c56a6c81cbd235147b34e2ba40eaa3">Шаблон singleton</a> -
@@ -58,11 +65,5 @@ singleton применять в проектах, где используютс�
 </ol>
 
 <ul>
-  <li>Подключение Checkstyle с Maven  </li>
-  <li>JaCoCo. Процент покрытие тестами <a href="https://github.com/aswsx/job4j_tracker/commit/cd068d3410f37987089af5a14daebb69fbfa42be"></a></li>
-  <li>Интеграция с Travis CI </li>
-  <li>Лямбда выражения </li>
-  <li>StreamAPI </li>
-  <li>Optional </li>
-  <li>Local-Variable Type Inference (var) </li>
+  
 </ul>
