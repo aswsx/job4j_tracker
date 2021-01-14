@@ -1,13 +1,5 @@
 
-# Проект содержит решения блоков "ООП", "Collections Lite", "FP,Lambda, Stream API" курса Job4j.
-В проекте применяются знания, полученные в процессе прохождения  <a href="https://github.com/aswsx/job4j_elementary">курса по основам языка Java</a>.</p>
-<p>Основа проекта- консольное приложение для работы с заявками. После запуска на экране отображается меню с выбором доступных действий.
-Ввод новой заявки, удаление, поиск заявок по ID и имени</p>
-<p align="center">
-  <img src="Pictures/kisspng-logo-java-development-kit-portable-network-graphic-5d0f25d6adc385.3528057515612738147117.png" height="200" title="главное меню программы">
-  <img src="screenshots/example_edit_item.png" height="200" title="редактирование элемента">
-  <img src="screenshots/example_find_item.png" height="200" title="поиск элемента">
-</p>
+
 <h2>Структура проекта</h2>
 <ul>
   <li><a href="https://github.com/ReyBos/job4j_tracker/blob/master/src/main/java/ru/job4j/tracker/Item.java">ru.job4j.tracker.Item</a> объект этого класса описывает модель данных</li>
