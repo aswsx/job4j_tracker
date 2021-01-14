@@ -7,10 +7,8 @@
 
  <img src="Pictures/logo-java.png" height="100">
 
-## Проект содержит решения блоков "ООП", "Collections Lite", "FP,Lambda, Stream API" курса Job4j.
+## Проект содержит решения блоков "ООП", "Collections Lite", "FP,Lambda, Stream API" курса <a href="https://github.com/aswsx/job4j_elementary"> курса Job4j по основам языка Java</a>.
 
-В проекте применяются знания, полученные в процессе прохождения  <a href="https://github.com/aswsx/job4j_elementary">
-курса по основам языка Java</a>.</p>
 <p>Основа проекта- консольное приложение для работы с заявками. После запуска на экране отображается меню с выбором доступных действий.
 Ввод новой заявки, удаление, поиск заявок по ID и имени</p>
 <p align="center">
