@@ -21,7 +21,7 @@
 </p>
 <h2>Содержимое проекта</h2>
 <ul>
-  <li><a href="https://github.com/ReyBos/job4j_tracker/blob/master/src/main/java/ru/job4j/tracker/Item.java">ru.job4j.tracker.Item</a> объект этого класса описывает модель данных</li>
+  <li>Модель данных<a href="https://github.com/ReyBos/job4j_tracker/blob/master/src/main/java/ru/job4j/tracker/Item.java">ru.job4j.tracker.Item</a> </li>
   <li>Главное меню <a href="https://github.com/ReyBos/job4j_tracker/blob/master/src/main/java/ru/job4j/tracker/StartUI.java">ru.job4j.tracker.StartUI</a></li>
 </ul>
 <h2>Ключевые этапы</h2>
