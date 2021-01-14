@@ -17,7 +17,7 @@
   <img src="Pictures/Main Menu.jpg" height="150" title="Главное меню программы">
   <img src="Pictures/FindAll.jpg" height="150" title="Поиск всех элементов">
   <img src="Pictures/Create.jpg" height="150" title="Создание элемента">
-  <img src=Pictures/FindByName.jpg" height="150" title="Поиск по имени элемента">
+  <img src="Pictures/FindByName.jpg" height="150" title="Поиск по имени элемента">
 </p>
 <h2>Содержимое проекта</h2>
 <ul>
