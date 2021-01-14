@@ -5,7 +5,7 @@
 
 ## Используемые технологии
 
- <img src="Pictures/logo-java.png" height="100">  <img src="Pictures/jacoco.png" height="100">  <img src="Pictures/maven.png" height="100">  <img src="Pictures/TravisCI.png" height="100"> 
+ <img src="Pictures/logo-java.png" height="100">  <img src="Pictures/jacoco.png" height="60">  <img src="Pictures/maven.png" height="60">  <img src="Pictures/TravisCI.png" height="80"> 
 
 ## Проект содержит решения блоков "ООП", "Collections Lite", "FP,Lambda, Stream API" курса <a href="https://github.com/aswsx/job4j_elementary"> курса Job4j по основам языка Java</a>.
 
