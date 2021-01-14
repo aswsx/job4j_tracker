@@ -4,9 +4,12 @@
 [![codecov](https://codecov.io/gh/aswsx/job4j_tracker/branch/master/graph/badge.svg?token=CFOYCL8LHR)](https://codecov.io/gh/aswsx/job4j_tracker)
 
 ## Используемые технологии
-
- <img src="Pictures/logo-java.png" height="100">    <img src="Pictures/jacoco.png" height="60">    <img src="Pictures/maven.png" height="50">    <img src="Pictures/TravisCI.png" height="60"> 
-
+<p align="center">
+ <img src="Pictures/logo-java.png" height="100">
+<img src="Pictures/jacoco.png" height="60">
+<img src="Pictures/maven.png" height="50">
+<img src="Pictures/TravisCI.png" height="60"> 
+</p>
 ## Проект содержит решения блоков "ООП", "Collections Lite", "FP,Lambda, Stream API" курса <a href="https://github.com/aswsx/job4j_elementary"> курса Job4j по основам языка Java</a>.
 
 <p>Основа проекта- консольное приложение для работы с заявками. После запуска на экране отображается меню с выбором доступных действий.
