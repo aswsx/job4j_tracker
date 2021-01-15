@@ -65,6 +65,3 @@ singleton применять в проектах, где используютс�
   <li><a href="https://github.com/aswsx/job4j_tracker/blob/1738ebf1c2c56a6c81cbd235147b34e2ba40eaa3/src/main/java/ru/job4j/tracker/TrackerStaticClassLazy.java">private static final class</a>. Lazy loading.</li>
 </ol>
 
-<ul>
-  
-</ul>
