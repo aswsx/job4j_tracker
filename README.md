@@ -10,10 +10,10 @@
 <img src="Pictures/maven.png" height="50">
 <img src="Pictures/TravisCI.png" height="60"> 
 </p>
-## Проект содержит решения блоков "ООП", "Collections Lite", "FP,Lambda, Stream API" курса <a href="https://github.com/aswsx/job4j_elementary"> курса Job4j по основам языка Java</a>.
+## Проект содержит решения блоков "ООП", "Collections Lite", "FP,Lambda, Stream API" курса <a href="https://github.com/aswsx/job4j_elementary"> Job4j по основам языка Java</a>.
 
-<p>Основа проекта- консольное приложение для работы с заявками. После запуска на экране отображается меню с выбором доступных действий.
-Ввод новой заявки, удаление, поиск заявок по ID и имени</p>
+<p>Основа проекта- консольное приложение для работы с заявками. После запуска на экране отображается меню с выбором доступных действий:
+ввод новой заявки, удаление, поиск заявок по ID и имени</p>
 <p align="center">
   <img src="Pictures/Main Menu.jpg" height="150" title="Главное меню программы">
   <img src="Pictures/FindAll.jpg" height="150" title="Поиск всех элементов">
@@ -47,6 +47,7 @@
   <li>Optional </li>
   <li>Local-Variable Type Inference (var) </li>
 </ul>
+
 <h3>Singleton</h3>
 <p><a href="https://github.com/aswsx/job4j_tracker/commit/1738ebf1c2c56a6c81cbd235147b34e2ba40eaa3">Шаблон singleton</a> -
 используется для создания класса, который может содержать только один экземпляр объекта в виртуальной машине. Шаблон
