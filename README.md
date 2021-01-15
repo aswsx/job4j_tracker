@@ -46,7 +46,7 @@
   <li>StreamAPI </li>
   <li>Optional </li>
   <li>Local-Variable Type Inference (var) </li>
-
+</ul>
 
 <h3>Singleton</h3>
 <p><a href="https://github.com/aswsx/job4j_tracker/commit/1738ebf1c2c56a6c81cbd235147b34e2ba40eaa3">Шаблон singleton</a> -
