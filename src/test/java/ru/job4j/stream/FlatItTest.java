@@ -3,7 +3,7 @@ package ru.job4j.stream;
 import org.junit.Test;
 import java.util.Iterator;
 import java.util.List;
-import static org.junit.Assert.*;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
 public class FlatItTest {
