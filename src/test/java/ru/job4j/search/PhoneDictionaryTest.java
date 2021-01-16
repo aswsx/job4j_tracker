@@ -5,7 +5,7 @@ import ru.job4j.oop.search.Person;
 import ru.job4j.oop.search.PhoneDictionary;
 
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 public class PhoneDictionaryTest {
 

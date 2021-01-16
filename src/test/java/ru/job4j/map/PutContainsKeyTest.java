@@ -1,14 +1,13 @@
 package ru.job4j.map;
 
 import org.junit.Test;
-
-import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.*;
-
 import ru.job4j.map.PutContainsKey.User;
 
 import java.util.List;
 import java.util.Map;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.Is.is;
 
 public class PutContainsKeyTest {
     @Test
