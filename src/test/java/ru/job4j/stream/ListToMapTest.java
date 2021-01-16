@@ -18,8 +18,7 @@ public class ListToMapTest {
                 new Student(4, "Ришар")
         );
         Map<String, Student> rsl = ListToMap.convert(input);
-        Map expect;
-        expect = Map.of(
+        Map expect = Map.of(
                 "Челентано", new Student(1, "Челентано"),
                 "Делон", new Student(2, "Делон"),
                 "Депардье", new Student(3, "Депардье"),
