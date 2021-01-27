@@ -11,7 +11,7 @@ public class User {
 
     /**
      *Конструктор
-     * @param passport приниметна вход паспорт клиента
+     * @param passport принимет на вход паспорт клиента
      * @param username принимает на вход имя клиента
      */
     public User(String passport, String username) {

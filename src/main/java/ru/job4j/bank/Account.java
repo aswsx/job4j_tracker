@@ -11,7 +11,7 @@ public class Account {
 
     /**
      *
-     * @param requisite принимет на вход номер счета
+     * @param requisite принимает на вход номер счета
      * @param balance принимает на вход сумму
      */
     public Account(String requisite, double balance) {

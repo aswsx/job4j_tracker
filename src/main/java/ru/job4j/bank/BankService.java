@@ -18,14 +18,14 @@ public class BankService {
      * Метод принимает клиента на вход и добавляет его в базу
      * если его еще нет в базе
      *
-     * @param user клиент? добавляемый в базу
+     * @param user клиент, добавляемый в базу
      */
     public void addUser(User user) {
         users.putIfAbsent(user, new ArrayList<>());
     }
 
     /**
-     * Метод добавляет клиенту счет? если такого еще нет
+     * Метод добавляет клиенту счет, если такого еще нет
      *
      * @param passport паспорт клиента к которому привязывается счет
      * @param account  добавляемый счет
@@ -76,7 +76,7 @@ public class BankService {
      *
      * @param srcPasspord   принимаемый на вход паспорт отправителя
      * @param srcRequisite  принимаемый на вход счет отправителя
-     * @param destPassport  принимаемый на вход пасспорт получателя
+     * @param destPassport  принимаемый на вход паспорт получателя
      * @param destRequisite принимаемый на вход счет получателя
      * @param amount        принимаемая на вход сумма
      * @return метод возвращает true, если перевод был успешен или false в случае
