@@ -74,7 +74,7 @@ public class BankService {
     /**
      * Метод переводит деньги между счетами
      *
-     * @param srcPasspord   принимаемый на вход паспорт отправителя
+     * @param srcPassword   принимаемый на вход паспорт отправителя
      * @param srcRequisite  принимаемый на вход счет отправителя
      * @param destPassport  принимаемый на вход паспорт получателя
      * @param destRequisite принимаемый на вход счет получателя
@@ -82,10 +82,10 @@ public class BankService {
      * @return метод возвращает true, если перевод был успешен или false в случае
      * неудачного перевода
      */
-    public boolean transferMoney(String srcPasspord, String srcRequisite,
+    public boolean transferMoney(String srcPassword, String srcRequisite,
                                  String destPassport, String destRequisite, double amount) {
         boolean rsl = false;
-        Optional<Account> srcAccount = findByRequisite(srcPasspord, srcRequisite);
+        Optional<Account> srcAccount = findByRequisite(srcPassword, srcRequisite);
         Optional<Account> destAccount = findByRequisite(destPassport, destRequisite);
         if (srcAccount.isPresent()
                 && destAccount.isPresent()
