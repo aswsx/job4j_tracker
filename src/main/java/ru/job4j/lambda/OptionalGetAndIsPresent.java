@@ -7,7 +7,7 @@ public class OptionalGetAndIsPresent {
     public static int get(int[] data, int el) {
         return OptionalGetAndIsPresent.indexOf(data, el)
                 .isPresent()
-                ? (int) OptionalGetAndIsPresent
+                ? OptionalGetAndIsPresent
                 .indexOf(data, el).get() : -1;
 
     }
