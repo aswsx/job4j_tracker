@@ -38,6 +38,7 @@ public class EasyStream {
         return this;
     }
 
+
     public EasyStream filter(Predicate<Integer> fun) {
         List<Integer> temp = new ArrayList<>();
         for (int elem : rsl) {
