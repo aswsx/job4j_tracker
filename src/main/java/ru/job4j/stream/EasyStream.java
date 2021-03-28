@@ -19,7 +19,7 @@ public class EasyStream {
         }
 
         Builder buildTemp() {
-            this.temp = new ArrayList<>();
+            temp = rsl;
             return this;
         }
 
@@ -39,22 +39,26 @@ public class EasyStream {
     }
 
     public EasyStream map(Function<Integer, Integer> fun) {
+        temp = new ArrayList<>();
         for (int elem : rsl) {
             temp.add(fun.apply(elem));
         }
-        return new EasyStream();
+        rsl = temp;
+        return this;
     }
 
     public EasyStream filter(Predicate<Integer> fun) {
+        temp = new ArrayList<>();
         for (int elem : rsl) {
             if (fun.test(elem)) {
                 temp.add(elem);
             }
         }
-        return new EasyStream();
+        rsl = temp;
+        return this;
     }
 
     public List<Integer> collect() {
-        return rsl;
+        return temp;
     }
 }
