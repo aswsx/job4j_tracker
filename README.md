@@ -22,8 +22,8 @@
 </p>
 <h2>Содержимое проекта</h2>
 <ul>
-  <li>Модель данных <a href="https://github.com/ReyBos/job4j_tracker/blob/master/src/main/java/ru/job4j/tracker/Item.java">ru.job4j.tracker.Item</a> </li>
-  <li>Главное меню <a href="https://github.com/ReyBos/job4j_tracker/blob/master/src/main/java/ru/job4j/tracker/StartUI.java">ru.job4j.tracker.StartUI</a></li>
+  <li>Модель данных <a href="https://github.com/ReyBos/job4j_tracker/blob/master/src/main/java/ru/job4j/memTracker/Item.java">ru.job4j.memTracker.Item</a> </li>
+  <li>Главное меню <a href="https://github.com/ReyBos/job4j_tracker/blob/master/src/main/java/ru/job4j/memTracker/StartUI.java">ru.job4j.memTracker.StartUI</a></li>
 </ul>
 <h2>Ключевые этапы</h2>
 <ul>
@@ -59,9 +59,9 @@ singleton применять в проектах, где используютс�
 </ul>
 <h4>Представлены следующие варианты реализации</h4>
 <ol>
-  <li><a href="https://github.com/aswsx/job4j_tracker/blob/1738ebf1c2c56a6c81cbd235147b34e2ba40eaa3/src/main/java/ru/job4j/tracker/TrackerEnum.java">Enum</a>. Eager loading.</li>
-  <li><a href="https://github.com/aswsx/job4j_tracker/blob/1738ebf1c2c56a6c81cbd235147b34e2ba40eaa3/src/main/java/ru/job4j/tracker/TrackerStaticFieldLazy.java">static field</a>. Lazy loading.</li>
-  <li><a href="https://github.com/aswsx/job4j_tracker/blob/1738ebf1c2c56a6c81cbd235147b34e2ba40eaa3/src/main/java/ru/job4j/tracker/TrackerStaticFieldEager.java">static final field</a>. Eager loading.</li>
-  <li><a href="https://github.com/aswsx/job4j_tracker/blob/1738ebf1c2c56a6c81cbd235147b34e2ba40eaa3/src/main/java/ru/job4j/tracker/TrackerStaticClassLazy.java">private static final class</a>. Lazy loading.</li>
+  <li><a href="https://github.com/aswsx/job4j_tracker/blob/1738ebf1c2c56a6c81cbd235147b34e2ba40eaa3/src/main/java/ru/job4j/memTracker/TrackerEnum.java">Enum</a>. Eager loading.</li>
+  <li><a href="https://github.com/aswsx/job4j_tracker/blob/1738ebf1c2c56a6c81cbd235147b34e2ba40eaa3/src/main/java/ru/job4j/memTracker/TrackerStaticFieldLazy.java">static field</a>. Lazy loading.</li>
+  <li><a href="https://github.com/aswsx/job4j_tracker/blob/1738ebf1c2c56a6c81cbd235147b34e2ba40eaa3/src/main/java/ru/job4j/memTracker/TrackerStaticFieldEager.java">static final field</a>. Eager loading.</li>
+  <li><a href="https://github.com/aswsx/job4j_tracker/blob/1738ebf1c2c56a6c81cbd235147b34e2ba40eaa3/src/main/java/ru/job4j/memTracker/TrackerStaticClassLazy.java">private static final class</a>. Lazy loading.</li>
 </ol>
 

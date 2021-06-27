@@ -2,10 +2,10 @@ package ru.job4j;
 
 public enum TrackerEnum {
     INSTANCE;
-    private final Tracker tracker = new Tracker();
+    private final MemTracker memTracker = new MemTracker();
 
-    public Tracker getTracker() {
-        return tracker;
+    public MemTracker getTracker() {
+        return memTracker;
     }
 
     public Item add(Item model) {
@@ -13,6 +13,6 @@ public enum TrackerEnum {
     }
 
     public static void main(String[] args) {
-        Tracker tracker = INSTANCE.getTracker();
+        var memTracker = INSTANCE.getTracker();
     }
 }

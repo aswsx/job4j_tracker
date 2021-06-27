@@ -1,5 +1,7 @@
 package ru.job4j;
 
+import java.sql.SQLException;
+
 public class EditAction implements UserAction {
     private final Output out;
 
@@ -13,12 +15,12 @@ public class EditAction implements UserAction {
     }
 
     @Override
-    public boolean execute(Input input, Tracker tracker) {
+    public boolean execute(Input input, SqlTracker memTracker) throws SQLException {
         out.println("=== Edit Item ===");
-        int id = input.askInt("Enter Id:");
+        var id = input.askInt("Enter Id:");
         String name = input.askStr("Enter name:");
-        Item item = new Item(name);
-        if (tracker.replace(id, item)) {
+        var item = new Item(name);
+        if (memTracker.replace(id, item)) {
             out.println("Edited");
         } else {
             out.println("Error");

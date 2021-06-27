@@ -15,10 +15,10 @@ public class FindByNameAction implements UserAction {
     }
 
     @Override
-    public boolean execute(Input input, Tracker tracker) {
+    public boolean execute(Input input, SqlTracker memTracker) {
         out.println("=== Find item by Name ===");
         String name = input.askStr("=== Enter name ===");
-        List<Item> items = tracker.findByName(name);
+        List<Item> items = memTracker.findByName(name);
         if (!items.isEmpty()) {
             for (Item item : items) {
                 out.println(item);

@@ -8,29 +8,29 @@ public class OnlyOneInstance {
 
     @Test
     public void whenStaticClassLazy() {
-        Tracker trackerStaticClassLazyTestone = TrackerStaticClassLazy.getInstance();
-        Tracker trackerStaticClassLazyTesttwo = TrackerStaticClassLazy.getInstance();
-        assertSame(trackerStaticClassLazyTestone, trackerStaticClassLazyTesttwo);
+        MemTracker memTrackerStaticClassLazyTestone = TrackerStaticClassLazy.getInstance();
+        MemTracker memTrackerStaticClassLazyTesttwo = TrackerStaticClassLazy.getInstance();
+        assertSame(memTrackerStaticClassLazyTestone, memTrackerStaticClassLazyTesttwo);
     }
 
     @Test
     public void whenStaticFieldEager() {
-        Tracker trackerStaticFieldEagerTestone = TrackerStaticFieldEager.getInstance();
-        Tracker trackerStaticFieldEagerTesttwo = TrackerStaticFieldEager.getInstance();
-        assertSame(trackerStaticFieldEagerTestone, trackerStaticFieldEagerTesttwo);
+        MemTracker memTrackerStaticFieldEagerTestone = TrackerStaticFieldEager.getInstance();
+        MemTracker memTrackerStaticFieldEagerTesttwo = TrackerStaticFieldEager.getInstance();
+        assertSame(memTrackerStaticFieldEagerTestone, memTrackerStaticFieldEagerTesttwo);
     }
 
     @Test
     public void whenStaticFieldLazy() {
-        Tracker trackerStaticFieldLazyTestone = TrackerStaticFieldLazy.getInstance();
-        Tracker trackerStaticFieldLazyTesttwo = TrackerStaticFieldLazy.getInstance();
-        assertSame(trackerStaticFieldLazyTestone, trackerStaticFieldLazyTesttwo);
+        MemTracker memTrackerStaticFieldLazyTestone = TrackerStaticFieldLazy.getInstance();
+        MemTracker memTrackerStaticFieldLazyTesttwo = TrackerStaticFieldLazy.getInstance();
+        assertSame(memTrackerStaticFieldLazyTestone, memTrackerStaticFieldLazyTesttwo);
     }
 
     @Test
     public void whenEnum() {
-        Tracker trackerEnumTestone = TrackerEnum.INSTANCE.getTracker();
-        Tracker trackerEnumTesttwo = TrackerEnum.INSTANCE.getTracker();
-        assertSame(trackerEnumTestone, trackerEnumTesttwo);
+        MemTracker memTrackerEnumTestone = TrackerEnum.INSTANCE.getTracker();
+        MemTracker memTrackerEnumTesttwo = TrackerEnum.INSTANCE.getTracker();
+        assertSame(memTrackerEnumTestone, memTrackerEnumTesttwo);
     }
 }

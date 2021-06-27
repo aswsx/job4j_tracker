@@ -2,6 +2,7 @@ package ru.job4j;
 
 import org.junit.Test;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,49 +15,49 @@ public class StartUITest {
     public void whenCreateItem() {
         Output out = new StubOutput();
         Input in = new StubInput(new String[]{"0", "Created Item", "1"});
-        Tracker tracker = new Tracker();
+        SqlTracker sqlTracker = new SqlTracker();
         List<UserAction> actions = new ArrayList<>();
         actions.add(new CreateAction(out));
         actions.add(new ExitAction());
-        new StartUI(out).init(in, tracker, actions);
-        assertThat(tracker.findAll().get(0).getName(), is("Created Item"));
+        new StartUI(out).init(in, sqlTracker, actions);
+        assertThat(sqlTracker.findAll().get(0).getName(), is("Created Item"));
     }
 
     @Test
-    public void whenReplaceItem() {
+    public void whenReplaceItem() throws SQLException {
         Output out = new StubOutput();
-        Tracker tracker = new Tracker();
-        Item item = tracker.add(new Item("Created item"));
+        SqlTracker sqlTracker = new SqlTracker();
+        Item item = sqlTracker.add(new Item("Created item"));
         String replName = "New item name";
         Input in = new StubInput(new String[]{"0", Integer.toString(item.getId()), replName, "1"});
         List<UserAction> actions = new ArrayList<>();
         actions.add(new EditAction(out));
         actions.add(new ExitAction());
-        new StartUI(out).init(in, tracker, actions);
-        assertThat(tracker.findAll().get(0).getName(), is(replName));
+        new StartUI(out).init(in, sqlTracker, actions);
+        assertThat(sqlTracker.findAll().get(0).getName(), is(replName));
     }
 
     @Test
-    public void whenDeleteItem() {
+    public void whenDeleteItem() throws SQLException {
         Output out = new StubOutput();
-        Tracker tracker = new Tracker();
-        Item item = tracker.add(new Item("Deleted item"));
+        SqlTracker sqlTracker = new SqlTracker();
+        Item item = sqlTracker.add(new Item("Deleted item"));
         Input in = new StubInput(new String[]{"0", Integer.toString(item.getId()), "1"});
         List<UserAction> actions = new ArrayList<>();
         actions.add(new DeleteAction(out));
         actions.add(new ExitAction());
-        new StartUI(out).init(in, tracker, actions);
-        assertThat(tracker.findById(item.getId()), is(nullValue()));
+        new StartUI(out).init(in, sqlTracker, actions);
+        assertThat(sqlTracker.findById(item.getId()), is(nullValue()));
     }
 
     @Test
     public void whenExit() {
         Output out = new StubOutput();
         Input in = new StubInput(new String[]{"0"});
-        Tracker tracker = new Tracker();
+        SqlTracker sqlTracker = new SqlTracker();
         List<UserAction> actions = new ArrayList<>();
         actions.add(new ExitAction());
-        new StartUI(out).init(in, tracker, actions);
+        new StartUI(out).init(in, sqlTracker, actions);
         assertThat(out.toString(), is(
                 String.format(
                         "Menu.%n"
@@ -66,12 +67,12 @@ public class StartUITest {
     @Test
     public void whenFindAllItem() {
         Output out = new StubOutput();
-        Tracker tracker = new Tracker();
+        SqlTracker sqlTracker = new SqlTracker();
         Input in = new StubInput(new String[]{"0", "1"});
         List<UserAction> actions = new ArrayList<>();
         actions.add(new ShowAllAction(out));
         actions.add(new ExitAction());
-        new StartUI(out).init(in, tracker, actions);
+        new StartUI(out).init(in, sqlTracker, actions);
         assertThat(out.toString(), is(
                 String.format(
                         "Menu.%n"
@@ -84,15 +85,15 @@ public class StartUITest {
     }
 
     @Test
-    public void whenFindByID() {
+    public void whenFindByID() throws SQLException {
         Output out = new StubOutput();
-        Tracker tracker = new Tracker();
-        Item item = tracker.add(new Item("Added item"));
+        SqlTracker sqlTracker = new SqlTracker();
+        Item item = sqlTracker.add(new Item("Added item"));
         Input in = new StubInput(new String[]{"0", Integer.toString(item.getId()), "1"});
         List<UserAction> actions = new ArrayList<>();
         actions.add(new FindByIDAction(out));
         actions.add(new ExitAction());
-        new StartUI(out).init(in, tracker, actions);
+        new StartUI(out).init(in, sqlTracker, actions);
         assertThat(out.toString(), is(
                 String.format(
                         "Menu.%n"
@@ -113,15 +114,15 @@ public class StartUITest {
     }
 
     @Test
-    public void whenFindByName() {
+    public void whenFindByName() throws SQLException {
         Output out = new StubOutput();
-        Tracker tracker = new Tracker();
-        Item item = tracker.add(new Item("Added item"));
+        SqlTracker sqlTracker = new SqlTracker();
+        Item item = sqlTracker.add(new Item("Added item"));
         Input in = new StubInput(new String[]{"0", item.getName(), "1"});
         List<UserAction> actions = new ArrayList<>();
         actions.add(new FindByNameAction(out));
         actions.add(new ExitAction());
-        new StartUI(out).init(in, tracker, actions);
+        new StartUI(out).init(in, sqlTracker, actions);
         assertThat(out.toString(), is(
                 String.format(
                         "Menu.%n"
@@ -145,10 +146,10 @@ public class StartUITest {
     public void whenInvalidExit() {
         Output out = new StubOutput();
         Input in = new StubInput(new String[]{"8", "0"});
-        Tracker tracker = new Tracker();
+        SqlTracker sqlTracker = new SqlTracker();
         List<UserAction> actions = new ArrayList<>();
         actions.add(new ExitAction());
-        new StartUI(out).init(in, tracker, actions);
+        new StartUI(out).init(in, sqlTracker, actions);
         assertThat(out.toString(), is(
                 String.format(
                         "Menu.%n"

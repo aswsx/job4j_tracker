@@ -4,7 +4,7 @@ public class TrackerStaticClassLazy {
     private TrackerStaticClassLazy() {
     }
 
-    public static Tracker getInstance() {
+    public static MemTracker getInstance() {
         return Holder.INSTANCE;
     }
 
@@ -13,11 +13,11 @@ public class TrackerStaticClassLazy {
     }
 
     private static final class Holder {
-        private static final Tracker INSTANCE = new Tracker();
+        private static final MemTracker INSTANCE = new MemTracker();
     }
 
     public static void main(String[] args) {
-        Tracker tracker = TrackerStaticClassLazy.getInstance();
+        var memTracker = TrackerStaticClassLazy.getInstance();
     }
 
 }

@@ -3,7 +3,7 @@ package ru.job4j;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Tracker {
+public class MemTracker {
     private final List<Item> items = new ArrayList<>();
     private int ids = 1;
 
@@ -20,7 +20,7 @@ public class Tracker {
 
     private int indexOf(int id) {
         int rsl = -1;
-        for (int index = 0; index < items.size(); index++) {
+        for (var index = 0; index < items.size(); index++) {
             if (items.get(index).getId() == id) {
                 rsl = index;
                 break;

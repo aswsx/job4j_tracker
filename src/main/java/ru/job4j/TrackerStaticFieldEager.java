@@ -1,12 +1,12 @@
 package ru.job4j;
 
 public class TrackerStaticFieldEager {
-    private static final Tracker INSTANCE = new Tracker();
+    private static final MemTracker INSTANCE = new MemTracker();
 
     private TrackerStaticFieldEager() {
     }
 
-    public static Tracker getInstance() {
+    public static MemTracker getInstance() {
         return INSTANCE;
     }
 
@@ -15,7 +15,7 @@ public class TrackerStaticFieldEager {
     }
 
     public static void main(String[] args) {
-        Tracker tracker = TrackerStaticFieldEager.getInstance();
+        var memTracker = TrackerStaticFieldEager.getInstance();
     }
 }
 
