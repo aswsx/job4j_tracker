@@ -12,7 +12,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 public class StartUITest {
     @Test
-    public void whenCreateItem() throws SQLException {
+    public void whenCreateItem() {
         Output out = new StubOutput();
         Input in = new StubInput(new String[]{"0", "Created Item", "1"});
         SqlTracker sqlTracker = new SqlTracker();
@@ -24,11 +24,17 @@ public class StartUITest {
     }
 
     @Test
-    public void whenReplaceItem() throws SQLException {
+    public void whenReplaceItem() {
         Output out = new StubOutput();
         SqlTracker sqlTracker = new SqlTracker();
-        Item item = sqlTracker.add(new Item("Created item"));
+        Item item = null;
+        try {
+            item = sqlTracker.add(new Item("Created item"));
+        } catch (SQLException se) {
+            se.printStackTrace();
+        }
         String replName = "New item name";
+        assert item != null;
         Input in = new StubInput(new String[]{"0", Integer.toString(item.getId()), replName, "1"});
         List<UserAction> actions = new ArrayList<>();
         actions.add(new EditAction(out));
@@ -38,10 +44,16 @@ public class StartUITest {
     }
 
     @Test
-    public void whenDeleteItem() throws SQLException {
+    public void whenDeleteItem() {
         Output out = new StubOutput();
         SqlTracker sqlTracker = new SqlTracker();
-        Item item = sqlTracker.add(new Item("Deleted item"));
+        Item item = null;
+        try {
+            item = sqlTracker.add(new Item("Deleted item"));
+        } catch (SQLException se) {
+            se.printStackTrace();
+        }
+        assert item != null;
         Input in = new StubInput(new String[]{"0", Integer.toString(item.getId()), "1"});
         List<UserAction> actions = new ArrayList<>();
         actions.add(new DeleteAction(out));
@@ -51,7 +63,7 @@ public class StartUITest {
     }
 
     @Test
-    public void whenExit() throws SQLException {
+    public void whenExit() {
         Output out = new StubOutput();
         Input in = new StubInput(new String[]{"0"});
         SqlTracker sqlTracker = new SqlTracker();
@@ -65,7 +77,7 @@ public class StartUITest {
     }
 
     @Test
-    public void whenFindAllItem() throws SQLException {
+    public void whenFindAllItem() {
         Output out = new StubOutput();
         SqlTracker sqlTracker = new SqlTracker();
         Input in = new StubInput(new String[]{"0", "1"});
@@ -85,10 +97,16 @@ public class StartUITest {
     }
 
     @Test
-    public void whenFindByID() throws SQLException {
+    public void whenFindByID(){
         Output out = new StubOutput();
         SqlTracker sqlTracker = new SqlTracker();
-        Item item = sqlTracker.add(new Item("Added item"));
+        Item item = null;
+        try {
+            item = sqlTracker.add(new Item("Added item"));
+        } catch (SQLException se) {
+            se.printStackTrace();
+        }
+        assert item != null;
         Input in = new StubInput(new String[]{"0", Integer.toString(item.getId()), "1"});
         List<UserAction> actions = new ArrayList<>();
         actions.add(new FindByIDAction(out));
@@ -114,10 +132,16 @@ public class StartUITest {
     }
 
     @Test
-    public void whenFindByName() throws SQLException {
+    public void whenFindByName() {
         Output out = new StubOutput();
         SqlTracker sqlTracker = new SqlTracker();
-        Item item = sqlTracker.add(new Item("Added item"));
+        Item item = null;
+        try {
+            item = sqlTracker.add(new Item("Added item"));
+        } catch (SQLException se) {
+            se.printStackTrace();
+        }
+        assert item != null;
         Input in = new StubInput(new String[]{"0", item.getName(), "1"});
         List<UserAction> actions = new ArrayList<>();
         actions.add(new FindByNameAction(out));
@@ -143,7 +167,7 @@ public class StartUITest {
     }
 
     @Test
-    public void whenInvalidExit() throws SQLException {
+    public void whenInvalidExit(){
         Output out = new StubOutput();
         Input in = new StubInput(new String[]{"8", "0"});
         SqlTracker sqlTracker = new SqlTracker();

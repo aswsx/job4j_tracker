@@ -10,7 +10,7 @@ public class StartUI {
         this.out = out;
     }
 
-    public void init(Input input, SqlTracker sqlTracker, List<UserAction> actions) throws SQLException {
+    public void init(Input input, SqlTracker sqlTracker, List<UserAction> actions) {
         var run = true;
         while (run) {
             this.showMenu(actions);
@@ -20,7 +20,11 @@ public class StartUI {
                 continue;
             }
             UserAction action = actions.get(select);
-            run = action.execute(input, sqlTracker);
+            try {
+                run = action.execute(input, sqlTracker);
+            } catch (SQLException se) {
+                se.printStackTrace();
+            }
         }
     }
 
