@@ -1,5 +1,6 @@
 package ru.job4j;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public class StartUI {
@@ -9,7 +10,7 @@ public class StartUI {
         this.out = out;
     }
 
-    public void init(Input input, SqlTracker sqlTracker, List<UserAction> actions) {
+    public void init(Input input, SqlTracker sqlTracker, List<UserAction> actions) throws SQLException {
         var run = true;
         while (run) {
             this.showMenu(actions);

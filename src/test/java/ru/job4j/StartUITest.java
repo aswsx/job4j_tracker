@@ -12,7 +12,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 public class StartUITest {
     @Test
-    public void whenCreateItem() {
+    public void whenCreateItem() throws SQLException {
         Output out = new StubOutput();
         Input in = new StubInput(new String[]{"0", "Created Item", "1"});
         SqlTracker sqlTracker = new SqlTracker();
@@ -51,7 +51,7 @@ public class StartUITest {
     }
 
     @Test
-    public void whenExit() {
+    public void whenExit() throws SQLException {
         Output out = new StubOutput();
         Input in = new StubInput(new String[]{"0"});
         SqlTracker sqlTracker = new SqlTracker();
@@ -65,7 +65,7 @@ public class StartUITest {
     }
 
     @Test
-    public void whenFindAllItem() {
+    public void whenFindAllItem() throws SQLException {
         Output out = new StubOutput();
         SqlTracker sqlTracker = new SqlTracker();
         Input in = new StubInput(new String[]{"0", "1"});
@@ -143,7 +143,7 @@ public class StartUITest {
     }
 
     @Test
-    public void whenInvalidExit() {
+    public void whenInvalidExit() throws SQLException {
         Output out = new StubOutput();
         Input in = new StubInput(new String[]{"8", "0"});
         SqlTracker sqlTracker = new SqlTracker();
