@@ -34,38 +34,32 @@ public class SqlTracker implements Store {
 
     @Override
     public Item add(Item item) throws SQLException {
-        try (PreparedStatement statement = connection
-                .prepareStatement("Insert into items (?)", Statement.RETURN_GENERATED_KEYS)) {
-            statement.setString(1, item.getName());
-            statement.execute();
-            try (ResultSet generatedKeys = statement.getGeneratedKeys()) {
-                if (generatedKeys.next()) {
-                    item.setId(generatedKeys.getInt(1));
-                }
+        Item rsl = null;
+        var sql = String.format("Insert into items values '%s';", item);
+        try (var statement = connection.createStatement()) {
+            if (statement.execute(sql)) {
+                rsl = item;
             }
         }
-        return item;
+        return rsl;
     }
 
     @Override
     public boolean replace(int id, Item item) throws SQLException {
+        var sql = String.format("update items name='%s' where id='%s';", item.getName(), id);
         var result = false;
-        try (PreparedStatement statement = connection
-                .prepareStatement("Replace item = ? with id = ?")) {
-            statement.setString(1, item.getName());
-            statement.setInt(2, id);
-            result = statement.executeUpdate() > 0;
+        try (var statement = connection.createStatement()) {
+            result = statement.execute(sql);
         }
         return result;
     }
 
     @Override
     public boolean delete(int id) throws SQLException {
+        var sql = String.format("delete from items where id='%s';", id);
         var result = false;
-        try (PreparedStatement statement = connection
-                .prepareStatement("Delete item with id = ? ")) {
-            statement.setInt(1, id);
-            result = statement.executeUpdate() > 0;
+        try (var statement = connection.createStatement()) {
+            result = statement.execute(sql);
         }
         return result;
     }
@@ -89,7 +83,7 @@ public class SqlTracker implements Store {
 
     @Override
     public List<Item> findByName(String key) {
-        var sql = String.format("select * from items where name='%s'", key);
+        var sql = String.format("select * from items where name='%s';", key);
         List<Item> list = new ArrayList<>();
         ResultSet rsl;
         try (var statement = connection.createStatement()) {
@@ -106,17 +100,19 @@ public class SqlTracker implements Store {
 
     @Override
     public Item findById(int id) {
-        var sql = String.format("select * from items where id='%d'", id);
+        var sql = String.format("select * from items where id='%d';", id);
         Item item = null;
         ResultSet rsl;
         try (var statement = connection.createStatement()) {
             statement.execute(sql);
             rsl = statement.getResultSet();
-            rsl.next();
-            item = new Item(rsl.getInt("id"), rsl.getString("name"));
+            if (rsl.next()) {
+                item = new Item(rsl.getInt("id"), rsl.getString("name"));
+            }
         } catch (SQLException se) {
             se.printStackTrace();
         }
+
         return item;
     }
 }

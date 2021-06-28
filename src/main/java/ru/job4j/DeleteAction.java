@@ -15,13 +15,17 @@ public class DeleteAction implements UserAction {
     }
 
     @Override
-    public boolean execute(Input input, SqlTracker memTracker) throws SQLException {
+    public boolean execute(Input input, Store store) {
         out.println("=== Delete Item ===");
         var id = input.askInt("=== Enter Id ===");
-        if (memTracker.delete(id)) {
-            out.println("Deleted");
-        } else {
-            out.println("Error");
+        try {
+            if (store.delete(id)) {
+                out.println("Deleted");
+            } else {
+                out.println("Error");
+            }
+        } catch (SQLException se) {
+            se.printStackTrace();
         }
         return true;
     }

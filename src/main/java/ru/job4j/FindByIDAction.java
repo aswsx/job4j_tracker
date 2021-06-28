@@ -13,10 +13,10 @@ public class FindByIDAction implements UserAction {
     }
 
     @Override
-    public boolean execute(Input input, SqlTracker memTracker) {
+    public boolean execute(Input input, Store store) {
         out.println("=== Find item by Id ===");
         var id = input.askInt("=== Enter Id ===");
-        Item item = memTracker.findById(id);
+        var item = store.findById(id);
         if (item != null) {
             out.println(item);
         } else {

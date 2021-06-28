@@ -15,9 +15,9 @@ public class ShowAllAction implements UserAction {
     }
 
     @Override
-    public boolean execute(Input input, SqlTracker memTracker) {
+    public boolean execute(Input input, Store store) {
         out.println("=== Show all Items ===");
-        List<Item> all = memTracker.findAll();
+        List<Item> all = store.findAll();
         for (Item item : all) {
             out.println(item);
         }

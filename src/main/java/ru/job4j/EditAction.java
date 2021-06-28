@@ -15,15 +15,19 @@ public class EditAction implements UserAction {
     }
 
     @Override
-    public boolean execute(Input input, SqlTracker memTracker) throws SQLException {
+    public boolean execute(Input input, Store store) {
         out.println("=== Edit Item ===");
         var id = input.askInt("Enter Id:");
         String name = input.askStr("Enter name:");
         var item = new Item(name);
-        if (memTracker.replace(id, item)) {
-            out.println("Edited");
-        } else {
-            out.println("Error");
+        try {
+            if (store.replace(id, item)) {
+                out.println("Edited");
+            } else {
+                out.println("Error");
+            }
+        } catch (SQLException es) {
+            es.printStackTrace();
         }
         return true;
     }

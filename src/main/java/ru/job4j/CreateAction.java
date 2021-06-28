@@ -15,11 +15,15 @@ public class CreateAction implements UserAction {
     }
 
     @Override
-    public boolean execute(Input input, SqlTracker memTracker) throws SQLException {
+    public boolean execute(Input input, Store store) {
         out.println("=== Create new Item ===");
         String name = input.askStr("Enter name: ");
         var item = new Item(name);
-        memTracker.add(item);
+        try {
+            store.add(item);
+        } catch (SQLException se) {
+            se.printStackTrace();
+        }
         return true;
     }
 }
