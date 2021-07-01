@@ -33,33 +33,46 @@ public class SqlTracker implements Store {
     }
 
     @Override
-    public Item add(Item item) throws SQLException {
-        Item rsl = null;
-        var sql = String.format("Insert into items values '%s';", item);
-        try (var statement = connection.createStatement()) {
-            if (statement.execute(sql)) {
-                rsl = item;
+    public Item add(Item item) {
+        var sql = "Insert into items(name) values (?)";
+        try (var statement = connection.prepareStatement(sql, Statement
+                .RETURN_GENERATED_KEYS)) {
+            statement.setString(1, item.getName());
+            statement.execute();
+            try (ResultSet generatedKeys = statement.getGeneratedKeys()) {
+                if (generatedKeys.next()) {
+                    item.setId(generatedKeys.getInt(1));
+                }
             }
+        } catch (SQLException se) {
+            se.printStackTrace();
+        }
+        return item;
+    }
+
+    @Override
+    public boolean replace(int id, Item item) {
+        var rsl = false;
+        var sql = "update items set name = ? where id = ?";
+        try (var statement = connection.prepareStatement(sql)) {
+            statement.setInt(1, id);
+            statement.setString(2, item.getName());
+            rsl = statement.executeUpdate() > 0;
+        } catch (SQLException se) {
+            se.printStackTrace();
         }
         return rsl;
     }
 
     @Override
-    public boolean replace(int id, Item item) throws SQLException {
-        var sql = String.format("update items name='%s' where id='%s';", item.getName(), id);
+    public boolean delete(int id) {
+        var sql = "delete from items where id = ?";
         var result = false;
-        try (var statement = connection.createStatement()) {
-            result = statement.execute(sql);
-        }
-        return result;
-    }
-
-    @Override
-    public boolean delete(int id) throws SQLException {
-        var sql = String.format("delete from items where id='%s';", id);
-        var result = false;
-        try (var statement = connection.createStatement()) {
-            result = statement.execute(sql);
+        try (var statement = connection.prepareStatement(sql)) {
+            statement.setInt(1, id);
+            result = statement.executeUpdate(sql) > 0;
+        } catch (SQLException se) {
+            se.printStackTrace();
         }
         return result;
     }
@@ -68,12 +81,14 @@ public class SqlTracker implements Store {
     public List<Item> findAll() {
         var sql = "select * from items";
         List<Item> list = new ArrayList<>();
-        ResultSet rsl;
-        try (var statement = connection.createStatement()) {
-            statement.execute(sql);
-            rsl = statement.getResultSet();
-            while (rsl.next()) {
-                list.add(new Item(rsl.getInt("id"), rsl.getString("name")));
+        try (var statement = connection.prepareStatement(sql)) {
+            try (var resultSet = statement.executeQuery()) {
+                while (resultSet.next()) {
+                    list.add(new Item(
+                            resultSet.getInt("id"),
+                            resultSet.getString("name")
+                    ));
+                }
             }
         } catch (SQLException se) {
             se.printStackTrace();
@@ -83,14 +98,17 @@ public class SqlTracker implements Store {
 
     @Override
     public List<Item> findByName(String key) {
-        var sql = String.format("select * from items where name='%s';", key);
+        var sql = "select * from items where name=?";
         List<Item> list = new ArrayList<>();
-        ResultSet rsl;
-        try (var statement = connection.createStatement()) {
-            statement.execute(sql);
-            rsl = statement.getResultSet();
-            while (rsl.next()) {
-                list.add(new Item(rsl.getInt("id"), rsl.getString("name")));
+        try (var statement = connection.prepareStatement(sql)) {
+            statement.setString(1, key);
+            try (var resultSet = statement.executeQuery()) {
+                while (resultSet.next()) {
+                    list.add(new Item(
+                            resultSet.getInt("id"),
+                            resultSet.getString("name")
+                    ));
+                }
             }
         } catch (SQLException se) {
             se.printStackTrace();
@@ -100,19 +118,20 @@ public class SqlTracker implements Store {
 
     @Override
     public Item findById(int id) {
-        var sql = String.format("select * from items where id='%d';", id);
+        var sql = "select * from items where id=?";
         Item item = null;
-        ResultSet rsl;
-        try (var statement = connection.createStatement()) {
-            statement.execute(sql);
-            rsl = statement.getResultSet();
-            if (rsl.next()) {
-                item = new Item(rsl.getInt("id"), rsl.getString("name"));
+        try (var statement = connection.prepareStatement(sql)) {
+            statement.setInt(1, id);
+            try (var resultSet = statement.executeQuery()) {
+                if (resultSet.next()) {
+                    item = new Item(
+                            resultSet.getInt("id"),
+                            resultSet.getString("name"));
+                }
             }
         } catch (SQLException se) {
             se.printStackTrace();
         }
-
         return item;
     }
 }

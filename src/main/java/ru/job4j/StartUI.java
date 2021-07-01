@@ -1,6 +1,5 @@
 package ru.job4j;
 
-import java.sql.SQLException;
 import java.util.List;
 
 public class StartUI {
@@ -20,11 +19,7 @@ public class StartUI {
                 continue;
             }
             UserAction action = actions.get(select);
-            try {
-                run = action.execute(input, sqlTracker);
-            } catch (SQLException se) {
-                se.printStackTrace();
-            }
+            run = action.execute(input, sqlTracker);
         }
     }
 

@@ -2,13 +2,12 @@ package ru.job4j;
 
 import org.junit.Test;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.hamcrest.Matchers.nullValue;
-import static org.hamcrest.Matchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.nullValue;
 
 public class StartUITest {
     @Test
@@ -28,11 +27,7 @@ public class StartUITest {
         Output out = new StubOutput();
         SqlTracker sqlTracker = new SqlTracker();
         Item item = null;
-        try {
-            item = sqlTracker.add(new Item("Created item"));
-        } catch (SQLException se) {
-            se.printStackTrace();
-        }
+        item = sqlTracker.add(new Item("Created item"));
         String replName = "New item name";
         assert item != null;
         Input in = new StubInput(new String[]{"0", Integer.toString(item.getId()), replName, "1"});
@@ -48,11 +43,7 @@ public class StartUITest {
         Output out = new StubOutput();
         SqlTracker sqlTracker = new SqlTracker();
         Item item = null;
-        try {
-            item = sqlTracker.add(new Item("Deleted item"));
-        } catch (SQLException se) {
-            se.printStackTrace();
-        }
+        item = sqlTracker.add(new Item("Deleted item"));
         assert item != null;
         Input in = new StubInput(new String[]{"0", Integer.toString(item.getId()), "1"});
         List<UserAction> actions = new ArrayList<>();
@@ -101,11 +92,7 @@ public class StartUITest {
         Output out = new StubOutput();
         SqlTracker sqlTracker = new SqlTracker();
         Item item = null;
-        try {
-            item = sqlTracker.add(new Item("Added item"));
-        } catch (SQLException se) {
-            se.printStackTrace();
-        }
+        item = sqlTracker.add(new Item("Added item"));
         assert item != null;
         Input in = new StubInput(new String[]{"0", Integer.toString(item.getId()), "1"});
         List<UserAction> actions = new ArrayList<>();
@@ -136,11 +123,7 @@ public class StartUITest {
         Output out = new StubOutput();
         SqlTracker sqlTracker = new SqlTracker();
         Item item = null;
-        try {
-            item = sqlTracker.add(new Item("Added item"));
-        } catch (SQLException se) {
-            se.printStackTrace();
-        }
+        item = sqlTracker.add(new Item("Added item"));
         assert item != null;
         Input in = new StubInput(new String[]{"0", item.getName(), "1"});
         List<UserAction> actions = new ArrayList<>();
