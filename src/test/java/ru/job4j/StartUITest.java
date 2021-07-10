@@ -26,8 +26,7 @@ public class StartUITest {
     public void whenReplaceItem() {
         Output out = new StubOutput();
         SqlTracker sqlTracker = new SqlTracker();
-        Item item = null;
-        item = sqlTracker.add(new Item("Created item"));
+        Item item = sqlTracker.add(new Item("Created item"));
         String replName = "New item name";
         assert item != null;
         Input in = new StubInput(new String[]{"0", Integer.toString(item.getId()), replName, "1"});
@@ -42,8 +41,7 @@ public class StartUITest {
     public void whenDeleteItem() {
         Output out = new StubOutput();
         SqlTracker sqlTracker = new SqlTracker();
-        Item item = null;
-        item = sqlTracker.add(new Item("Deleted item"));
+        Item item = sqlTracker.add(new Item("Deleted item"));
         assert item != null;
         Input in = new StubInput(new String[]{"0", Integer.toString(item.getId()), "1"});
         List<UserAction> actions = new ArrayList<>();
@@ -88,11 +86,10 @@ public class StartUITest {
     }
 
     @Test
-    public void whenFindByID(){
+    public void whenFindByID() {
         Output out = new StubOutput();
         SqlTracker sqlTracker = new SqlTracker();
-        Item item = null;
-        item = sqlTracker.add(new Item("Added item"));
+        Item item = sqlTracker.add(new Item("Added item"));
         assert item != null;
         Input in = new StubInput(new String[]{"0", Integer.toString(item.getId()), "1"});
         List<UserAction> actions = new ArrayList<>();
@@ -122,8 +119,7 @@ public class StartUITest {
     public void whenFindByName() {
         Output out = new StubOutput();
         SqlTracker sqlTracker = new SqlTracker();
-        Item item = null;
-        item = sqlTracker.add(new Item("Added item"));
+        Item item = sqlTracker.add(new Item("Added item"));
         assert item != null;
         Input in = new StubInput(new String[]{"0", item.getName(), "1"});
         List<UserAction> actions = new ArrayList<>();
@@ -150,7 +146,7 @@ public class StartUITest {
     }
 
     @Test
-    public void whenInvalidExit(){
+    public void whenInvalidExit() {
         Output out = new StubOutput();
         Input in = new StubInput(new String[]{"8", "0"});
         SqlTracker sqlTracker = new SqlTracker();
