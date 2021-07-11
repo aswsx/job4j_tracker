@@ -62,8 +62,8 @@ public class SqlTracker implements Store {
         var rsl = false;
         var sql = "update items set name = ? where id = ?";
         try (var statement = connection.prepareStatement(sql)) {
-            statement.setInt(1, id);
-            statement.setString(2, item.getName());
+            statement.setString(1, item.getName());
+            statement.setInt(2, id);
             rsl = statement.executeUpdate() > 0;
         } catch (SQLException se) {
             se.printStackTrace();
@@ -77,7 +77,7 @@ public class SqlTracker implements Store {
         var result = false;
         try (var statement = connection.prepareStatement(sql)) {
             statement.setInt(1, id);
-            result = statement.executeUpdate(sql) > 0;
+            result = statement.executeUpdate() > 0;
         } catch (SQLException se) {
             se.printStackTrace();
         }

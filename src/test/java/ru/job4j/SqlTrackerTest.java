@@ -5,15 +5,15 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Properties;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class SqlTrackerTest {
 
@@ -21,8 +21,8 @@ public class SqlTrackerTest {
 
     @BeforeClass
     public static void initConnection() {
-        try (InputStream in = SqlTrackerTest.class.getClassLoader().getResourceAsStream("test.properties")) {
-            Properties config = new Properties();
+        try (var in = SqlTrackerTest.class.getClassLoader().getResourceAsStream("test.properties")) {
+            var config = new Properties();
             config.load(in);
             Class.forName(config.getProperty("driver-class-name"));
             connection = DriverManager.getConnection(
@@ -42,16 +42,67 @@ public class SqlTrackerTest {
 
     @After
     public void wipeTable() throws SQLException {
-        try (PreparedStatement statement = connection.prepareStatement("delete from items")) {
+        try (var statement = connection.prepareStatement("delete from items")) {
             statement.execute();
         }
     }
 
     @Test
     public void whenSaveItemAndFindByGeneratedIdThenMustBeTheSame() {
-        SqlTracker tracker = new SqlTracker(connection);
-        Item item = new Item("item");
+        var tracker = new SqlTracker(connection);
+        var item = new Item("item");
         tracker.add(item);
         assertThat(tracker.findById(item.getId()), is(item));
+    }
+
+    @Test
+    public void whenSaveItemThenDeleteAndFindByGeneratedIdThenMustBeNull() {
+        var tracker = new SqlTracker(connection);
+        var item = new Item();
+        tracker.add(item);
+        assertTrue(tracker.delete(item.getId()));
+    }
+
+    @Test
+    public void whenAddItemsAndFindAllTheNamesMustBeTheSame() {
+        var tracker = new SqlTracker(connection);
+        tracker.add(new Item("item1"));
+        tracker.add(new Item("item2"));
+        var rsl = tracker.findAll();
+        for (var i = 0; i < rsl.size(); i++) {
+            assertEquals(String.format("item%d", (i + 1)), rsl.get(i).getName());
+        }
+    }
+
+    @Test
+    public void whenAddItemThenFindItByIdNameMustBeTheSame() {
+        var tracker = new SqlTracker(connection);
+        var item = new Item("item");
+        tracker.add(item);
+        var rsl = tracker.findById(item.getId());
+        assertEquals(rsl.getName(), item.getName());
+    }
+
+    @Test
+    public void whenAddItemAndThenReplaceTheNameMastBeChanged() {
+        var tracker = new SqlTracker(connection);
+        var item = new Item("item");
+        tracker.add(item);
+        item.setName("newItem");
+        tracker.replace(item.getId(), item);
+        assertEquals("newItem", tracker.findById(item.getId()).getName());
+    }
+
+    @Test
+    public void whenAddItemsThenFindItByName() {
+        var tracker = new SqlTracker(connection);
+        tracker.add(new Item(0, "item1"));
+        tracker.add(new Item(0, "item2"));
+        tracker.add(new Item(0, "item1"));
+        var rsl = tracker.findByName("item1");
+        assertEquals(2, rsl.size());
+        for (var item : rsl) {
+            assertEquals("item1", item.getName());
+        }
     }
 }
