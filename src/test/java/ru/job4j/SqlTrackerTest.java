@@ -29,7 +29,6 @@ public class SqlTrackerTest {
                     config.getProperty("url"),
                     config.getProperty("username"),
                     config.getProperty("password")
-
             );
         } catch (Exception e) {
             throw new IllegalStateException(e);
@@ -50,7 +49,7 @@ public class SqlTrackerTest {
 
     @Test
     public void whenSaveItemAndFindByGeneratedIdThenMustBeTheSame() {
-        SqlTracker tracker = new SqlTracker();
+        SqlTracker tracker = new SqlTracker(connection);
         Item item = new Item("item");
         tracker.add(item);
         assertThat(tracker.findById(item.getId()), is(item));
