@@ -1,6 +1,11 @@
 package ru.job4j;
 
 import org.junit.Test;
+import ru.job4j.singleton.TrackerEnum;
+import ru.job4j.singleton.TrackerStaticClassLazy;
+import ru.job4j.singleton.TrackerStaticFieldEager;
+import ru.job4j.singleton.TrackerStaticFieldLazy;
+import ru.job4j.store.MemTracker;
 
 import static org.junit.Assert.assertSame;
 

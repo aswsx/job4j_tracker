@@ -1,6 +1,11 @@
 package ru.job4j;
 
 import org.junit.Test;
+import ru.job4j.input.Input;
+import ru.job4j.input.StubInput;
+import ru.job4j.input.ValidateInput;
+import ru.job4j.output.Output;
+import ru.job4j.output.StubOutput;
 
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
