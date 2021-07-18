@@ -5,7 +5,7 @@ import ru.job4j.model.Item;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MemTracker implements Store{
+public class MemTracker implements Store {
     private final List<Item> items = new ArrayList<>();
     private int ids = 1;
 
@@ -70,6 +70,5 @@ public class MemTracker implements Store{
 
     @Override
     public void close() throws Exception {
-
     }
 }
