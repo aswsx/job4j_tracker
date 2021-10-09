@@ -59,6 +59,19 @@ public class StartUI {
         } catch (Exception e) {
             e.printStackTrace();
         }
+/* использовано для профилирования памяти
+        try (MemTracker memTracker = new MemTracker()) {
+            for (int i = 0; i < 10000000; i++) {
+                Item item = new Item();
+                item.setName("z" + i);
+                memTracker.add(item);
+                int id = item.getId();
+                memTracker.delete(id);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+*/
     }
 }
 
