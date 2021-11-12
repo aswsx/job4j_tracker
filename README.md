@@ -1,6 +1,5 @@
 # job4j_tracker
 
-[![Build Status](https://travis-ci.com/aswsx/job4j_tracker.svg?branch=master)](https://travis-ci.com/aswsx/job4j_tracker)
 [![Java CI with Maven](https://github.com/aswsx/job4j_tracker/actions/workflows/maven.yml/badge.svg)](https://github.com/aswsx/job4j_tracker/actions/workflows/maven.yml)
 [![codecov](https://codecov.io/gh/aswsx/job4j_tracker/branch/master/graph/badge.svg?token=CFOYCL8LHR)](https://codecov.io/gh/aswsx/job4j_tracker)
 
