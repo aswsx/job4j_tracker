@@ -1,14 +1,20 @@
 package ru.job4j.model;
 
+import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
+@Entity
+@Table(name = "items")
 public class Item {
-    private final LocalDateTime created = LocalDateTime.now();
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
-    private final DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("dd-MMMM-EEEE-yyyy HH:mm:ss");
+    @Transient
+    private final LocalDateTime created = LocalDateTime.now();
 
     public Item() {
     }
@@ -68,7 +74,8 @@ public class Item {
         return "Item{"
                 + "id=" + id
                 + ", name='" + name + '\''
-                + ", created=" + timeFormatter.format(created)
+                + ", created=" + DateTimeFormatter
+                .ofPattern("dd-MMMM-EEEE-yyyy HH:mm:ss").format(created)
                 + '}';
     }
 }
