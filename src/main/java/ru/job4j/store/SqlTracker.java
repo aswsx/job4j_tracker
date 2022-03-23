@@ -4,6 +4,7 @@ import ru.job4j.model.Item;
 
 import java.io.InputStream;
 import java.sql.*;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
@@ -96,8 +97,8 @@ public class SqlTracker implements Store {
                 while (resultSet.next()) {
                     list.add(new Item(
                             resultSet.getInt("id"),
-                            resultSet.getString("name")
-                    ));
+                            resultSet.getString("name"),
+                            Timestamp.valueOf(LocalDateTime.now())));
                 }
             }
         } catch (SQLException se) {
@@ -116,8 +117,8 @@ public class SqlTracker implements Store {
                 while (resultSet.next()) {
                     list.add(new Item(
                             resultSet.getInt("id"),
-                            resultSet.getString("name")
-                    ));
+                            resultSet.getString("name"),
+                            Timestamp.valueOf(LocalDateTime.now())));
                 }
             }
         } catch (SQLException se) {
@@ -136,7 +137,8 @@ public class SqlTracker implements Store {
                 if (resultSet.next()) {
                     item = new Item(
                             resultSet.getInt("id"),
-                            resultSet.getString("name"));
+                            resultSet.getString("name"), Timestamp
+                            .valueOf(LocalDateTime.now()));
                 }
             }
         } catch (SQLException se) {

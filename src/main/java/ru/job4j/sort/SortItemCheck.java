@@ -2,17 +2,19 @@ package ru.job4j.sort;
 
 import ru.job4j.model.Item;
 
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
 
 public class SortItemCheck {
     public static void main(String[] args) {
         List<Item> items = Arrays.asList(
-                new Item(1, "1st item"),
-                new Item(2, "2nd item"),
-                new Item(4, "4th item"),
-                new Item(3, "3rd item"),
-                new Item(5, "5th item"));
+                new Item(1, "1st item", Timestamp.valueOf(LocalDateTime.now())),
+                new Item(2, "2nd item", Timestamp.valueOf(LocalDateTime.now())),
+                new Item(4, "4th item", Timestamp.valueOf(LocalDateTime.now())),
+                new Item(3, "3rd item", Timestamp.valueOf(LocalDateTime.now())),
+                new Item(5, "5th item", Timestamp.valueOf(LocalDateTime.now())));
 
         System.out.println("До сортировки");
         System.out.println(items);

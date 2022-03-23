@@ -1,11 +1,13 @@
 package ru.job4j.action;
 
+import ru.job4j.input.Input;
 import ru.job4j.model.Item;
 import ru.job4j.output.Output;
 import ru.job4j.store.Store;
-import ru.job4j.input.Input;
 
 import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 public class CreateAction implements UserAction {
     private final Output out;
@@ -23,7 +25,7 @@ public class CreateAction implements UserAction {
     public boolean execute(Input input, Store store) {
         out.println("=== Create new Item ===");
         String name = input.askStr("Enter name: ");
-        var item = new Item(name);
+        var item = new Item(name,  Timestamp.valueOf(LocalDateTime.now()));
         try {
             store.add(item);
         } catch (SQLException se) {

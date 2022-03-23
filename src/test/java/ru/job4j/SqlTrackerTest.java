@@ -10,6 +10,8 @@ import ru.job4j.store.SqlTracker;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.Properties;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -52,7 +54,7 @@ public class SqlTrackerTest {
     @Test
     public void whenSaveItemAndFindByGeneratedIdThenMustBeTheSame() {
         var tracker = new SqlTracker(connection);
-        var item = new Item("item");
+        var item = new Item("item", Timestamp.valueOf(LocalDateTime.now()));
         tracker.add(item);
         assertThat(tracker.findById(item.getId()), is(item));
     }
@@ -60,7 +62,7 @@ public class SqlTrackerTest {
     @Test
     public void whenSaveItemThenDeleteAndFindByGeneratedIdThenMustBeNull() {
         var tracker = new SqlTracker(connection);
-        var item = new Item();
+        var item = new Item(Timestamp.valueOf(LocalDateTime.now()));
         tracker.add(item);
         assertTrue(tracker.delete(item.getId()));
     }
@@ -68,8 +70,8 @@ public class SqlTrackerTest {
     @Test
     public void whenAddItemsAndFindAllTheNamesMustBeTheSame() {
         var tracker = new SqlTracker(connection);
-        tracker.add(new Item("item1"));
-        tracker.add(new Item("item2"));
+        tracker.add(new Item("item1", Timestamp.valueOf(LocalDateTime.now())));
+        tracker.add(new Item("item2", Timestamp.valueOf(LocalDateTime.now())));
         var rsl = tracker.findAll();
         for (var i = 0; i < rsl.size(); i++) {
             assertEquals(String.format("item%d", (i + 1)), rsl.get(i).getName());
@@ -79,7 +81,7 @@ public class SqlTrackerTest {
     @Test
     public void whenAddItemThenFindItByIdNameMustBeTheSame() {
         var tracker = new SqlTracker(connection);
-        var item = new Item("item");
+        var item = new Item("item", Timestamp.valueOf(LocalDateTime.now()));
         tracker.add(item);
         var rsl = tracker.findById(item.getId());
         assertEquals(rsl.getName(), item.getName());
@@ -88,7 +90,7 @@ public class SqlTrackerTest {
     @Test
     public void whenAddItemAndThenReplaceTheNameMastBeChanged() {
         var tracker = new SqlTracker(connection);
-        var item = new Item("item");
+        var item = new Item("item", Timestamp.valueOf(LocalDateTime.now()));
         tracker.add(item);
         item.setName("newItem");
         tracker.replace(item.getId(), item);
@@ -98,9 +100,9 @@ public class SqlTrackerTest {
     @Test
     public void whenAddItemsThenFindItByName() {
         var tracker = new SqlTracker(connection);
-        tracker.add(new Item(0, "item1"));
-        tracker.add(new Item(0, "item2"));
-        tracker.add(new Item(0, "item1"));
+        tracker.add(new Item(0, "item1", Timestamp.valueOf(LocalDateTime.now())));
+        tracker.add(new Item(0, "item2", Timestamp.valueOf(LocalDateTime.now())));
+        tracker.add(new Item(0, "item1", Timestamp.valueOf(LocalDateTime.now())));
         var rsl = tracker.findByName("item1");
         assertEquals(2, rsl.size());
         for (var item : rsl) {
