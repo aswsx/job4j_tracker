@@ -1,9 +1,6 @@
 package ru.job4j;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.*;
 import ru.job4j.model.Item;
 import ru.job4j.store.SqlTracker;
 
