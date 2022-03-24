@@ -6,10 +6,9 @@ import ru.job4j.output.Output;
 import ru.job4j.store.Store;
 
 import java.sql.SQLException;
-import java.sql.Timestamp;
-import java.time.LocalDateTime;
 
 public class CreateAction implements UserAction {
+    private Item item;
     private final Output out;
 
     public CreateAction(Output out) {
@@ -25,7 +24,7 @@ public class CreateAction implements UserAction {
     public boolean execute(Input input, Store store) {
         out.println("=== Create new Item ===");
         String name = input.askStr("Enter name: ");
-        var item = new Item(name,  Timestamp.valueOf(LocalDateTime.now()));
+        var item = new Item(name);
         try {
             store.add(item);
         } catch (SQLException se) {

@@ -4,13 +4,10 @@ import ru.job4j.action.*;
 import ru.job4j.input.ConsoleInput;
 import ru.job4j.input.Input;
 import ru.job4j.input.ValidateInput;
-import ru.job4j.model.Item;
 import ru.job4j.output.ConsoleOutput;
 import ru.job4j.output.Output;
 import ru.job4j.store.SqlTracker;
 
-import java.sql.Timestamp;
-import java.time.LocalDateTime;
 import java.util.List;
 
 public class StartUI {
@@ -42,8 +39,6 @@ public class StartUI {
     }
 
     public static void main(String[] args) {
-        var item = new Item(Timestamp.valueOf(LocalDateTime.now()));
-        System.out.println(item.getCreated());
         Output output = new ConsoleOutput();
         Input input = new ValidateInput(output, new ConsoleInput());
         try (var tracker = new SqlTracker()) {

@@ -1,13 +1,15 @@
 package ru.job4j.model;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
 @Entity
 @Table(name = "items")
 public class Item {
-
+    private static final DateTimeFormatter FORMATTER =
+            DateTimeFormatter.ofPattern("dd-MMMM-EEEE-yyyy HH:mm:ss");
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -15,35 +17,28 @@ public class Item {
 
     private String description;
 
-    private Timestamp created;
+    private final LocalDateTime created = LocalDateTime.now();
 
-    public Item(Timestamp created) {
-        this.created = created;
+    public Item() {
     }
 
-    public Item(int id, Timestamp created) {
+    public Item(int id) {
         this.id = id;
-        this.created = created;
     }
 
-    public Item(String name, Timestamp created) {
+    public Item(String name) {
         this.name = name;
-        this.created = created;
     }
 
-    public Item(int id, String name, Timestamp created) {
+    public Item(int id, String name) {
         this.id = id;
         this.name = name;
-        this.created = created;
     }
 
     public Item(int id, String name, String description) {
         this.id = id;
         this.name = name;
         this.description = description;
-    }
-
-    public Item() {
     }
 
     public int getId() {
@@ -70,7 +65,7 @@ public class Item {
         this.description = description;
     }
 
-    public Timestamp getCreated() {
+    public LocalDateTime getCreated() {
         return created;
     }
 
@@ -96,7 +91,7 @@ public class Item {
         return "Item{"
                 + "id=" + id
                 + ", name='" + name + '\''
-                + ", created=" + created
+                + ", created=" + created.format(FORMATTER)
                 + '}';
     }
 }
