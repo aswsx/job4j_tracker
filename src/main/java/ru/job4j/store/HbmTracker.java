@@ -1,5 +1,6 @@
 package ru.job4j.store;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
@@ -25,36 +26,69 @@ public class HbmTracker implements Store, AutoCloseable {
 
     @Override
     public Item add(Item item) {
-        return null;
+        Session session = sf.openSession();
+        session.beginTransaction();
+        session.save(item);
+        session.getTransaction().commit();
+        session.close();
+        return item;
     }
 
     @Override
     public boolean replace(int id, Item item) {
-        return false;
+        Session session = sf.openSession();
+        session.beginTransaction();
+        session.update(item);
+        session.getTransaction().commit();
+        session.close();
+        return true;
     }
 
     @Override
     public boolean delete(int id) {
-        return false;
+        Session session = sf.openSession();
+        session.beginTransaction();
+        Item item = new Item(id);
+        item.setId(id);
+        session.delete(item);
+        session.getTransaction().commit();
+        session.close();
+        return true;
     }
 
     @Override
     public List<Item> findAll() {
-        return null;
+        Session session = sf.openSession();
+        session.beginTransaction();
+        List result = session.createQuery("from ru.job4j.model.Item").list();
+        session.getTransaction().commit();
+        session.close();
+        return result;
     }
 
     @Override
-    public List<Item> findByName(String key) {
-        return null;
+    public List<Item> findByName(String name) {
+        Session session = sf.openSession();
+        session.beginTransaction();
+        List result = session.createQuery("from ru.job4j.model.Item where name = :name").
+                setParameter("name", name).list();
+        session.getTransaction().commit();
+        session.close();
+        return result;
     }
 
     @Override
     public Item findById(int id) {
-        return null;
+        Session session = sf.openSession();
+        session.beginTransaction();
+        Item result = session.find(Item.class, id);
+        session.getTransaction().commit();
+        session.close();
+        return result;
     }
 
     @Override
-    public void close() throws Exception {
+    public void close() {
         StandardServiceRegistryBuilder.destroy(registry);
     }
 }
