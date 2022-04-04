@@ -28,3 +28,5 @@ hs_err_pid*
 
 target
 out
+/testdb.mv.db
+/testdb.trace.db

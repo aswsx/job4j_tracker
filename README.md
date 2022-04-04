@@ -2,14 +2,33 @@
 
 [![Java CI with Maven](https://github.com/aswsx/job4j_tracker/actions/workflows/maven.yml/badge.svg)](https://github.com/aswsx/job4j_tracker/actions/workflows/maven.yml)
 [![codecov](https://codecov.io/gh/aswsx/job4j_tracker/branch/master/graph/badge.svg?token=CFOYCL8LHR)](https://codecov.io/gh/aswsx/job4j_tracker)
+![GitHub top language](https://img.shields.io/github/languages/top/aswsx/job4j_tracker)
+![Lines of code](https://img.shields.io/tokei/lines/github/aswsx/job4j_tracker)
+
 
 ## Используемые технологии
-<p align="center">
- <img src="Pictures/logo-java.png" height="100">
-<img src="Pictures/jacoco.png" height="60">
-<img src="Pictures/maven.png" height="50">
-<img src="Pictures/TravisCI.png" height="60"> 
-</p>
+
+![Java](https://img.shields.io/badge/-Java-003f5c?style=for-the-badge&logo=Java)
+![Spring](https://img.shields.io/badge/-Spring-003f5c?style=for-the-badge&logo=Spring)
+![SpringBoot](https://img.shields.io/badge/-SpringBoot-003f5c?style=for-the-badge&logo=SpringBoot)
+![PostgreSQL](https://img.shields.io/badge/-PostgreSQL-003f5c?style=for-the-badge&logo=POstgreSQL)
+![H2](https://img.shields.io/badge/-H2-003f5c?style=for-the-badge&logo=H2)
+![GitHub](https://img.shields.io/badge/-Github-003f5c?style=for-the-badge&logo=Github)
+![Actions](https://img.shields.io/badge/-GithubActions-003f5c?style=for-the-badge&logo=GithubActions)
+![TravisCI](https://img.shields.io/badge/-TravisCI-003f5c?style=for-the-badge&logo=TravisCI)
+![CircleCI](https://img.shields.io/badge/-CircleCI-003f5c?style=for-the-badge&logo=CircleCI)
+![Codecov](https://img.shields.io/badge/-Codecov-003f5c?style=for-the-badge&logo=Codecov)
+![HTML](https://img.shields.io/badge/-HTML-003f5c?style=for-the-badge&logo=HTML)
+![JDBC](https://img.shields.io/badge/-JDBC-003f5c?style=for-the-badge&logo=JDBC)
+![Bootstrap](https://img.shields.io/badge/-Bootstrap-003f5c?style=for-the-badge&logo=Bootstrap)
+![ThymeLeaf](https://img.shields.io/badge/-ThymeLeaf-003f5c?style=for-the-badge&logo=ThymeLeaf)
+![Mockito](https://img.shields.io/badge/-Mockito-003f5c?style=for-the-badge&logo=Mockito)
+![Postman](https://img.shields.io/badge/-Postman-003f5c?style=for-the-badge&logo=Postman)
+![JSOUP](https://img.shields.io/badge/-JSOUP-003f5c?style=for-the-badge&logo=JSOUP)
+![LiquiBase](https://img.shields.io/badge/-LiquiBase-003f5c?style=for-the-badge&logo=LiquiBase)
+![Quartz](https://img.shields.io/badge/-Quartz-003f5c?style=for-the-badge&logo=Quartz)
+![JUnit4](https://img.shields.io/badge/-JUnit4-003f5c?style=for-the-badge&logo=JUnit)
+![JUnit5](https://img.shields.io/badge/-JUnit5-003f5c?style=for-the-badge&logo=JUnit)
 ## Проект содержит решения блоков "ООП", "Collections Lite", "FP,Lambda, Stream API" курса <a href="https://github.com/aswsx/job4j_elementary"> Job4j по основам языка Java</a>.
 
 <p>Основа проекта- консольное приложение для работы с заявками. После запуска на экране отображается меню с выбором доступных действий:
