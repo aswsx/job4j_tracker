@@ -2,7 +2,10 @@
 
 [![Java CI with Maven](https://github.com/aswsx/job4j_tracker/actions/workflows/maven.yml/badge.svg)](https://github.com/aswsx/job4j_tracker/actions/workflows/maven.yml)
 [![codecov](https://codecov.io/gh/aswsx/job4j_tracker/branch/master/graph/badge.svg?token=CFOYCL8LHR)](https://codecov.io/gh/aswsx/job4j_tracker)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/w/aswsx/job4j_tracker)
+![GitHub last commit](https://img.shields.io/github/last-commit/aswsx/job4j_tracker)
 ![GitHub top language](https://img.shields.io/github/languages/top/aswsx/job4j_tracker)
+![GitHub language count](https://img.shields.io/github/languages/count/aswsx/job4j_tracker)
 ![Lines of code](https://img.shields.io/tokei/lines/github/aswsx/job4j_tracker)
 
 
