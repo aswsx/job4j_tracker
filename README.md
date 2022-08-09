@@ -14,8 +14,10 @@
 ![Java](https://img.shields.io/badge/-Java-003f5c?style=for-the-badge&logo=Java)
 ![Spring](https://img.shields.io/badge/-Spring-003f5c?style=for-the-badge&logo=Spring)
 ![SpringBoot](https://img.shields.io/badge/-SpringBoot-003f5c?style=for-the-badge&logo=SpringBoot)
+![Hibernate](https://img.shields.io/badge/-Hibernate-003f5c?style=for-the-badge&logo=Hibernate)
 ![PostgreSQL](https://img.shields.io/badge/-PostgreSQL-003f5c?style=for-the-badge&logo=POstgreSQL)
 ![H2](https://img.shields.io/badge/-H2-003f5c?style=for-the-badge&logo=H2)
+![hsqldb](https://img.shields.io/badge/-hsqldb-003f5c?style=for-the-badge&logo=hsqldb)
 ![GitHub](https://img.shields.io/badge/-Github-003f5c?style=for-the-badge&logo=Github)
 ![Actions](https://img.shields.io/badge/-GithubActions-003f5c?style=for-the-badge&logo=GithubActions)
 ![TravisCI](https://img.shields.io/badge/-TravisCI-003f5c?style=for-the-badge&logo=TravisCI)
@@ -32,6 +34,7 @@
 ![Quartz](https://img.shields.io/badge/-Quartz-003f5c?style=for-the-badge&logo=Quartz)
 ![JUnit4](https://img.shields.io/badge/-JUnit4-003f5c?style=for-the-badge&logo=JUnit)
 ![JUnit5](https://img.shields.io/badge/-JUnit5-003f5c?style=for-the-badge&logo=JUnit)
+![AssertJ](https://img.shields.io/badge/-AssertJ-003f5c?style=for-the-badge&logo=AssertJ)
 ## Проект содержит решения блоков "ООП", "Collections Lite", "FP,Lambda, Stream API" курса <a href="https://github.com/aswsx/job4j_elementary"> Job4j по основам языка Java</a>.
 
 <p>Основа проекта- консольное приложение для работы с заявками. После запуска на экране отображается меню с выбором доступных действий:

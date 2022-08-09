@@ -96,8 +96,7 @@ public class SqlTracker implements Store {
                 while (resultSet.next()) {
                     list.add(new Item(
                             resultSet.getInt("id"),
-                            resultSet.getString("name"),
-                            "Description"));
+                            resultSet.getString("name")));
                 }
             }
         } catch (SQLException se) {
@@ -136,7 +135,7 @@ public class SqlTracker implements Store {
                 if (resultSet.next()) {
                     item = new Item(
                             resultSet.getInt("id"),
-                            resultSet.getString("name"), "Description");
+                            resultSet.getString("name"));
                 }
             }
         } catch (SQLException se) {

@@ -1,5 +1,7 @@
 package ru.job4j.tracker.model;
 
+import lombok.*;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -7,6 +9,10 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "items")
+@NoArgsConstructor
+@ToString
+@Getter
+@Setter
 public class Item {
     private static final DateTimeFormatter FORMATTER =
             DateTimeFormatter.ofPattern("dd-MMMM-EEEE-yyyy HH:mm:ss");
@@ -18,9 +24,6 @@ public class Item {
     private String description;
 
     private final LocalDateTime created = LocalDateTime.now();
-
-    public Item() {
-    }
 
     public Item(int id) {
         this.id = id;
@@ -41,34 +44,6 @@ public class Item {
         this.description = description;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public LocalDateTime getCreated() {
-        return created;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -84,14 +59,5 @@ public class Item {
     @Override
     public int hashCode() {
         return Objects.hash(id, name);
-    }
-
-    @Override
-    public String toString() {
-        return "Item{"
-                + "id=" + id
-                + ", name='" + name + '\''
-                + ", created=" + created.format(FORMATTER)
-                + '}';
     }
 }
