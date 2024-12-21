@@ -21,7 +21,7 @@ public class SqlTracker implements Store {
 
     @Override
     public void init() {
-        try (InputStream in = SqlTracker.class.getClassLoader().getResourceAsStream("app.properties")) {
+        try (InputStream in = SqlTracker.class.getClassLoader().getResourceAsStream("db/liquibase.properties")) {
             var config = new Properties();
             config.load(in);
             Class.forName(config.getProperty("driver-class-name"));
