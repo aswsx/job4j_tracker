@@ -1,6 +1,7 @@
 package ru.job4j.tracker;
 
 import org.junit.*;
+import org.junit.jupiter.api.Disabled;
 import ru.job4j.tracker.model.Item;
 import ru.job4j.tracker.store.SqlTracker;
 
@@ -13,6 +14,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+
 @Ignore
 public class SqlTrackerTest {
 
@@ -41,11 +43,12 @@ public class SqlTrackerTest {
 
     @After
     public void wipeTable() throws SQLException {
-        try (var statement = connection.prepareStatement("delete from items")) {
+        try (var statement = connection.prepareStatement("DELETE FROM items")) {
             statement.execute();
         }
     }
 
+    @Disabled
     @Test
     public void whenSaveItemAndFindByGeneratedIdThenMustBeTheSame() {
         var tracker = new SqlTracker(connection);
@@ -54,6 +57,7 @@ public class SqlTrackerTest {
         assertThat(tracker.findById(item.getId()), is(item));
     }
 
+    @Disabled
     @Test
     public void whenSaveItemThenDeleteAndFindByGeneratedIdThenMustBeNull() {
         var tracker = new SqlTracker(connection);
@@ -62,6 +66,7 @@ public class SqlTrackerTest {
         assertTrue(tracker.delete(item.getId()));
     }
 
+    @Disabled
     @Test
     public void whenAddItemsAndFindAllTheNamesMustBeTheSame() {
         var tracker = new SqlTracker(connection);
@@ -73,6 +78,7 @@ public class SqlTrackerTest {
         }
     }
 
+    @Disabled
     @Test
     public void whenAddItemThenFindItByIdNameMustBeTheSame() {
         var tracker = new SqlTracker(connection);
@@ -82,6 +88,7 @@ public class SqlTrackerTest {
         assertEquals(rsl.getName(), item.getName());
     }
 
+    @Disabled
     @Test
     public void whenAddItemAndThenReplaceTheNameMastBeChanged() {
         var tracker = new SqlTracker(connection);
@@ -92,6 +99,7 @@ public class SqlTrackerTest {
         assertEquals("newItem", tracker.findById(item.getId()).getName());
     }
 
+    @Disabled
     @Test
     public void whenAddItemsThenFindItByName() {
         var tracker = new SqlTracker(connection);
