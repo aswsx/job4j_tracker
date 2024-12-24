@@ -44,7 +44,7 @@ public class SqlTracker implements Store {
 
     @Override
     public Item add(Item item) {
-        var sql = "Insert into items(name) values (?)";
+        var sql = "INSERT INTO items(name) VALUES (?)";
         try (var statement = connection.prepareStatement(sql, Statement
                 .RETURN_GENERATED_KEYS)) {
             statement.setString(1, item.getName());
@@ -63,7 +63,7 @@ public class SqlTracker implements Store {
     @Override
     public boolean replace(int id, Item item) {
         var rsl = false;
-        var sql = "update items set name = ? where id = ?";
+        var sql = "UPDATE items SET name = ? WHERE id = ?";
         try (var statement = connection.prepareStatement(sql)) {
             statement.setString(1, item.getName());
             statement.setInt(2, id);
@@ -76,7 +76,7 @@ public class SqlTracker implements Store {
 
     @Override
     public boolean delete(int id) {
-        var sql = "delete from items where id = ?";
+        var sql = "DELETE FROM items WHERE id = ?";
         var result = false;
         try (var statement = connection.prepareStatement(sql)) {
             statement.setInt(1, id);
@@ -89,7 +89,7 @@ public class SqlTracker implements Store {
 
     @Override
     public List<Item> findAll() {
-        var sql = "select * from items";
+        var sql = "SELECT * FROM items";
         List<Item> list = new ArrayList<>();
         try (var statement = connection.prepareStatement(sql)) {
             try (var resultSet = statement.executeQuery()) {
@@ -107,7 +107,7 @@ public class SqlTracker implements Store {
 
     @Override
     public List<Item> findByName(String key) {
-        var sql = "select * from items where name=?";
+        var sql = "SELECT * FROM items WHERE name=?";
         List<Item> list = new ArrayList<>();
         try (var statement = connection.prepareStatement(sql)) {
             statement.setString(1, key);
@@ -127,7 +127,7 @@ public class SqlTracker implements Store {
 
     @Override
     public Item findById(int id) {
-        var sql = "select * from items where id=?";
+        var sql = "SELECT * FROM items WHERE id=?";
         Item item = null;
         try (var statement = connection.prepareStatement(sql)) {
             statement.setInt(1, id);
